@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KotlinStudy</string>
+    <string name="action_settings">MoreThan</string>
+    <string name="section_format">KOTLIN SECRET: %1$d</string>
+</resources>
