@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.kotlin.study.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_start.*
 
 /**
  * Created by GG on 2018/2/27.
@@ -17,6 +17,12 @@ class StartBeginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
         setSupportActionBar(toolbar)
+
+        text.setOnClickListener {
+            print("123")
+        }
+
+
     }
 
 
@@ -26,6 +32,10 @@ class StartBeginActivity : AppCompatActivity() {
      * */
     private fun sum(a:Int,b:Int):Int{
         return a + b
+    }
+
+    private fun print(str : String){
+        println(str)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
