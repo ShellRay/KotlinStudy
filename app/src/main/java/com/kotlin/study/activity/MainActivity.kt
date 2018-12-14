@@ -8,12 +8,12 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.kotlin.study.R
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
      * [android.support.v4.app.FragmentStatePagerAdapter].
      */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
+
+    val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dragen, R.mipmap.dead3, R.mipmap.beauty, R.mipmap.dragen, R.mipmap.tiger, R.mipmap.xingzai)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,12 +87,12 @@ class MainActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1)
+            return PlaceholderFragment.newInstance(position)
         }
 
         override fun getCount(): Int {
             // Show 3 total pages.
-            return 3
+            return RES.size
         }
     }
 
@@ -98,7 +100,7 @@ class MainActivity : AppCompatActivity() {
      * A placeholder fragment containing a simple view.
      */
     class PlaceholderFragment : Fragment() {
-        val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dead2, R.mipmap.dead3, R.mipmap.dead4)
+        val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dragen, R.mipmap.dead3, R.mipmap.beauty, R.mipmap.dragen, R.mipmap.tiger, R.mipmap.xingzai)
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
@@ -106,9 +108,22 @@ class MainActivity : AppCompatActivity() {
 //            R.layout.constraint_layout_use
             var rootView = inflater.inflate(R.layout.fragment_main , container, false)
             rootView!!.section_label.text = getString(R.string.section_format, int)
-            rootView!!.pic.setImageResource(RES[int])
+            val url = "http://res.img002.com/pic//6194_9.gif"
+            val url1 = "http://res.img002.com/pic//6195_9.gif"
+            when(int){
+                0 -> loadGif(rootView,url)
+                2 -> loadGif(rootView, url1)
+                else -> rootView!!.pic.setImageResource(RES[int])
+            }
 
             return rootView
+        }
+
+        private fun loadGif(rootView: View?, url: String?) {
+            Glide.with(context)
+                    .asGif()
+                    .load(url)
+                    .into(rootView!!.pic)
         }
 
         companion object {

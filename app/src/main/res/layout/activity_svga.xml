@@ -22,7 +22,7 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|snap|enterAlways"
-            app:title="@string/app_name">
+            app:title="SVGAPLAYER">
             <!--app:layout_scrollFlags="scroll|snap"-->
 
         </android.support.v7.widget.Toolbar>
@@ -41,21 +41,13 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:layout_marginTop="15dp"
-            android:textStyle="italic"
-            android:textSize="18sp"
+            android:text="SVGAPLAYER"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center_horizontal"
-            android:onClick="ksClick"
+            android:textStyle="italic"
             />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -70,10 +62,9 @@
                 android:layout_width="130dp"
                 android:layout_height="70dp"
                 android:text="svgaPlayer"
-                 />
+                />
 
             <Button
-                android:id="@+id/simple"
                 android:layout_width="130dp"
                 android:layout_height="70dp"
                 android:text="@string/app_name"
@@ -81,6 +72,24 @@
                 />
 
         </RelativeLayout>
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            app:antiAlias="true"
+            app:autoPlay="true"
+            app:source="angel.svga" />
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/svgaInternet"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            app:antiAlias="true"
+            app:autoPlay="true"
+            />
+
 
     </LinearLayout>
 
