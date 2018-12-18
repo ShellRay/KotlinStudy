@@ -13,11 +13,9 @@ class ConvenientUtil {
 
     companion object {
 
-
-        fun startActivity(context: Context):Unit{
-//            Toast.makeText(context,"跳转", Toast.LENGTH_SHORT).show()
-            var intent = Intent(context, MainActivity::class.java)
-            context.startActivity(intent)
+        fun convertDpToPixel(context: Context, dp: Int): Int {
+            val scale = context.resources.displayMetrics.density
+            return (dp * scale + 0.5f).toInt()
         }
     }
 }
