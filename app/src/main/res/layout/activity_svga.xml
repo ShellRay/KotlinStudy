@@ -11,8 +11,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:paddingTop="@dimen/appbar_padding_top">
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,8 +20,8 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags="scroll|snap|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="SVGAPLAYER">
             <!--app:layout_scrollFlags="scroll|snap"-->
 
@@ -29,69 +29,77 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-    <LinearLayout
-        android:id="@+id/llRoot"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SVGAPLAYER"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic"
-            />
-
-
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/llRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            >
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <Button
-                android:id="@+id/svgaPlayer"
-                android:layout_width="130dp"
-                android:layout_height="70dp"
-                android:text="svgaPlayer"
-                />
-
-            <Button
-                android:layout_width="130dp"
-                android:layout_height="70dp"
-                android:text="@string/app_name"
-                android:layout_alignParentRight="true"
-                />
-
-        </RelativeLayout>
-
-        <com.opensource.svgaplayer.SVGAImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            app:antiAlias="true"
-            app:autoPlay="true"
-            app:source="angel.svga" />
-
-        <com.opensource.svgaplayer.SVGAImageView
-            android:id="@+id/svgaInternet"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            app:antiAlias="true"
-            app:autoPlay="true"
-            />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="SVGAPLAYER"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="italic" />
 
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
 
+                <Button
+                    android:id="@+id/svgaPlayer"
+                    android:layout_width="130dp"
+                    android:layout_height="70dp"
+                    android:text="svgaPlayer" />
 
+                <Button
+                    android:id="@+id/svgaCacheButton"
+                    android:layout_width="130dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:text="svgaCache" />
+
+            </RelativeLayout>
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:antiAlias="true"
+                app:autoPlay="true"
+                app:source="angel.svga" />
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/svgaInternet"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:antiAlias="true"
+                app:autoPlay="true" />
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:id="@+id/svgaCache"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:antiAlias="true"
+                app:autoPlay="true" />
+
+        </LinearLayout>
+
+    </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

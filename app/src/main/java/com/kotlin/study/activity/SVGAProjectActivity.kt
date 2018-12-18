@@ -1,6 +1,5 @@
 package com.kotlin.study.activity
 
-import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
@@ -10,14 +9,19 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.TextPaint
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.kotlin.study.R
+import com.kotlin.study.utils.ResourceUtils
 import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGADynamicEntity
 import com.opensource.svgaplayer.SVGAParser
 import com.opensource.svgaplayer.SVGAVideoEntity
 import kotlinx.android.synthetic.main.activity_svga.*
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 import java.net.URL
 
 /**
@@ -30,11 +34,51 @@ class SVGAProjectActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_svga)
 
         svgaPlayer.setOnClickListener(this)
+        svgaCacheButton.setOnClickListener(this)
 
+        ResourceUtils.getInstance().intialize()
     }
 
     override fun onClick(v: View?) {
-        loadAnimations()
+        when (v) {
+            svgaPlayer -> loadAnimations()
+            svgaCacheButton -> loadAnimationsFromCache()
+        }
+    }
+
+    private fun loadAnimationsFromCache() {
+        toast("click")
+
+        try {
+            var parser = SVGAParser(this)
+            val filePath = ResourceUtils.getInstance().getFilePath("1")
+            val file = File(filePath)
+            if (!file.exists()) {
+                Log.e("shell", "素材文件未下载")
+                return
+            }
+            var `is`: InputStream? = FileInputStream(file)
+
+            parser.parse( `is`!!, "banner",
+
+                object : SVGAParser.ParseCompletion {
+
+                    override fun onError() {
+                    toast("网络加载资源失败")
+                }
+
+                override fun onComplete(videoItem: SVGAVideoEntity) {
+                    var drawable = SVGADrawable(videoItem, requestDynamicItemWithSpannableText("Pony 送了一打风油精给主播"))
+                    svgaCache.setImageDrawable(drawable)
+                    svgaCache.startAnimation()
+                }
+
+            },true)
+        } catch (e: Exception) {
+            e.stackTrace
+            SystemClock.sleep(3000)
+            loadAnimationsFromCache()
+        }
     }
 
     private fun loadAnimations() {
@@ -56,7 +100,7 @@ class SVGAProjectActivity : AppCompatActivity(), View.OnClickListener {
 
                     }
             )
-        }catch (e : Exception){
+        } catch (e: Exception) {
             e.stackTrace
             SystemClock.sleep(3000)
             loadAnimations()
@@ -101,7 +145,8 @@ class SVGAProjectActivity : AppCompatActivity(), View.OnClickListener {
         }, "banner")//banner 是素材中的一个属性，只有存在才会将自定义的数字展示到其中
         return dynamicEntity
     }
-    private fun toast(msg : String) {
-        Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
