@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:gravity="center"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_show_result"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:alpha="0.65"
+        android:layout_width="180dp"
+        android:background="@drawable/simple_shape_bg"
+        android:minHeight="44dp"
+        android:maxLines="10"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -12,6 +12,7 @@ import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
 import com.kotlin.study.utils.ResourceUtils
 import com.opensource.svgaplayer.SVGADrawable
@@ -27,7 +28,7 @@ import java.net.URL
 /**
  * Created by GG on 2018/12/14.
  */
-class SVGAProjectActivity : AppCompatActivity(), View.OnClickListener {
+class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

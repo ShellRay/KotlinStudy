@@ -8,6 +8,7 @@ import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
 import com.kotlin.study.utils.ConvenientUtil
 import java.util.*
@@ -15,7 +16,7 @@ import java.util.*
 /**
  * Created by GG on 2018/2/27.
  */
-class WelcomeActivity : AppCompatActivity(){
+class WelcomeActivity : BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
