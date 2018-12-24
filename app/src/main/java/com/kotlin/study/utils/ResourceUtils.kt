@@ -221,9 +221,21 @@ class  ResourceUtils {
             connection.disconnect()
         } catch (e: Exception) {
             result = null
+            if (connection != null) {
+                try {
+                    //主动关闭inputStream
+                    //这里不需要进行判空操作
+                    connection.getInputStream().close();
+                } catch (e:IOException) {
+                    e.printStackTrace();
+                }
+                connection.disconnect();
+            }
+
         }
 
         if (connection != null) {
+
             connection.disconnect()
         }
 

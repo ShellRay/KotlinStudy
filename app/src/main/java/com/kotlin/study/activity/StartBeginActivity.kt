@@ -5,13 +5,11 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.kotlin.study.BaseActivity
@@ -31,8 +29,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "svgaPlayer",
             "simpleview",
             "NestedScrollView",
-            "JetBrains",
-            "JetBrains",
+            "KotlinCatalog",
+            "FundamentalTypeActivity",
             "JetBrains",
             "JetBrains",
             "JetBrains",
@@ -140,6 +138,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     0 ->  startActivity(Intent(baseContext,SVGAProjectActivity::class.java))
                     1 ->  startActivity(Intent(baseContext,SimpleActivity::class.java))
                     2 ->  startActivity(Intent(baseContext,NestedScrollViewActivity::class.java))
+                    3 ->  startActivity(Intent(baseContext,KotlinCatalog::class.java))
+                    4 ->  startActivity(Intent(baseContext,FundamentalTypeActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }

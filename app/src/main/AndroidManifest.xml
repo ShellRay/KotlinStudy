@@ -49,6 +49,16 @@
             android:name=".activity.NestedScrollViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activity.KotlinCatalog"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activity.FundamentalTypeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
