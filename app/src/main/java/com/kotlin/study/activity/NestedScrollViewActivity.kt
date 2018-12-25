@@ -25,7 +25,7 @@ class NestedScrollViewActivity : BaseActivity() {
         //启动返回键箭头展示
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 //      方法一 ：清单文件中加想要返回的activity  android:parentActivityName=".MainActivity"
-//      方法二 ：onOptionsItemSelected 此中加代码 NavUtils.navigateUpFromSameTask(this)
+//      onOptionsItemSelected 此中加代码 NavUtils.navigateUpFromSameTask(this)
 
         //设置工具栏标题
         val collapsingToolbar = findViewById<View>(R.id.collapsing_toolbar) as CollapsingToolbarLayout

@@ -29,8 +29,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "svgaPlayer",
             "simpleview",
             "NestedScrollView",
-            "KotlinCatalog",
-            "FundamentalTypeActivity",
+            "FundamentalType",
+            "SingleInstance",
             "JetBrains",
             "JetBrains",
             "JetBrains",
@@ -138,8 +138,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     0 ->  startActivity(Intent(baseContext,SVGAProjectActivity::class.java))
                     1 ->  startActivity(Intent(baseContext,SimpleActivity::class.java))
                     2 ->  startActivity(Intent(baseContext,NestedScrollViewActivity::class.java))
-                    3 ->  startActivity(Intent(baseContext,KotlinCatalog::class.java))
-                    4 ->  startActivity(Intent(baseContext,FundamentalTypeActivity::class.java))
+                    3 ->  startActivity(Intent(baseContext,FundamentalTypeActivity::class.java))
+                    4 ->  startActivity(Intent(baseContext,SingleInstanceActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }

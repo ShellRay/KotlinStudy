@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
+import com.kotlin.study.utils.GlideLoadUtils
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
@@ -114,17 +115,15 @@ class MainActivity : BaseActivity() {
             when(int){
                 0 -> loadGif(rootView,url)
                 2 -> loadGif(rootView, url1)
-                else -> rootView!!.pic.setImageResource(RES[int])
+                else -> GlideLoadUtils.getInstance().loadImageAsBitmap(context,RES[int],rootView!!.pic)
+//                    rootView!!.pic.setImageResource(RES[int])
             }
 
             return rootView
         }
 
         private fun loadGif(rootView: View?, url: String?) {
-            Glide.with(context)
-                    .asGif()
-                    .load(url)
-                    .into(rootView!!.pic)
+            GlideLoadUtils.getInstance().loadImageAsGif(context,url,rootView!!.pic)
         }
 
         companion object {
