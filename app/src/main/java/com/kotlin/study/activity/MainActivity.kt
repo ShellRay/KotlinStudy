@@ -47,12 +47,11 @@ class MainActivity : BaseActivity() {
         // Set up the ViewPager with the sections adapter.
         container.adapter = mSectionsPagerAdapter
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Open your new world", Snackbar.LENGTH_LONG)
-                    .setAction("Jump Import", View.OnClickListener { view ->
+        fab.setOnClickListener {
+            Snackbar.make(it, "Open your new world", Snackbar.LENGTH_LONG)
+                    .setAction("Jump Import", View.OnClickListener {
                         var intent = Intent(this,StartBeginActivity::class.java)
                         startActivity(intent)
-//                        finish()
                     }).show()
         }
 

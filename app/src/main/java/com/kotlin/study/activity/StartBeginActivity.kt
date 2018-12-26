@@ -31,7 +31,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "NestedScrollView",
             "FundamentalType",
             "SingleInstance",
-            "JetBrains",
+            "Function",
             "JetBrains",
             "JetBrains",
             "JetBrains",
@@ -140,6 +140,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     2 ->  startActivity(Intent(baseContext,NestedScrollViewActivity::class.java))
                     3 ->  startActivity(Intent(baseContext,FundamentalTypeActivity::class.java))
                     4 ->  startActivity(Intent(baseContext,SingleInstanceActivity::class.java))
+                    5 ->  startActivity(Intent(baseContext,FunctionActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }
@@ -157,13 +158,13 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
         when(view.id){
             svgaPlayer.id  -> startActivity(Intent(this,SVGAProjectActivity::class.java))
             simple.id  -> startActivity(Intent(this,SVGAProjectActivity::class.java))
-            else -> ToastUtils.ShowCustomToast(this,"no view setClick event")
+            else -> ToastUtils.showCustomToast(this,"no view setClick event")
         }
 
     }
 
     private fun toast(msg : String) {
-        ToastUtils.ShowCustomToast(baseContext,msg)
+        ToastUtils.showCustomToast(baseContext,msg)
     }
 
     private fun sum(a:Int,b:Int):Int{

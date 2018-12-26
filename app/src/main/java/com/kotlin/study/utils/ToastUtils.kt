@@ -95,13 +95,13 @@ object ToastUtils {
      * @param context
      * @param text
      */
-    fun ShowCustomToast(context: Context, text: String) {
+    fun showCustomToast(context: Context, text: String) {
         val toast = Toast(context)
         val v = LayoutInflater.from(context).inflate(R.layout.customtoast_layout, null)
         val textView = v.findViewById<View>(R.id.tv_show_result) as TextView
         // toast.setMargin(0.5f, 0.5f);
         toast.view = v
-        toast.setGravity(Gravity.BOTTOM, 0, ConvenientUtil.convertDpToPixel(context, 112))
+        toast.setGravity(Gravity.CENTER, 0, ConvenientUtil.convertDpToPixel(context, 112))
         toast.duration = Toast.LENGTH_SHORT
         textView.text = text
         toast.show()
