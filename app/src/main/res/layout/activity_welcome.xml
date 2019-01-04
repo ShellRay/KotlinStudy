@@ -1,16 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:background="@color/colorPrimaryDark"
+    android:gravity="center_horizontal"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/ll_move_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/ll_eye_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_head_outer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_eye_white"/>
+
+            <ImageView
+                android:id="@+id/iv_head_inner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <com.kotlin.study.widget.font.CustomFontTypeWriterTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_eye_container"
+            android:layout_centerHorizontal="true"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="44sp"
+            app:font_name="lobster"/>
+
+    </RelativeLayout>
+
     <TextView
+        android:id="@+id/textTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="#fff"
         android:textSize="50dp"
         android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="120dp"
         />
 
-</LinearLayout>
+    <com.kotlin.study.widget.InterceptVerticalViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.kotlin.study.widget.font.CustomFontTypeWriterTextView
+        android:id="@+id/tv_slogan_zh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        app:font_name="bold"/>
+
+    <com.kotlin.study.widget.font.CustomFontTypeWriterTextView
+        android:id="@+id/tv_slogan_en"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        app:font_name="lobster"/>
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        app:piv_animationType="color"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_padding="10dp"
+        app:piv_radius="3dp"
+        app:piv_selectedColor="@color/white"
+        app:piv_unselectedColor="@color/white_translucent_65"/>
+
+</RelativeLayout>

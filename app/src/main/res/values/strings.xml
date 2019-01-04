@@ -2,4 +2,18 @@
     <string name="app_name">KotlinStudy</string>
     <string name="action_settings">MoreThan</string>
     <string name="section_format">KOTLIN SECRET: %1$d</string>
+    <!--《增广贤文》-->
+    <string-array name="slogan_array_zh">
+        <item>未曾清贫难成人，不经打击老天真。</item>
+        <item>自古英雄出炼狱，从来富贵入凡尘。</item>
+        <item>醉生梦死谁成器，拓马长枪定乾坤。</item>
+        <item>挥军千里山河在，立名扬威传后人。</item>
+    </string-array>
+
+    <string-array name="slogan_array_en">
+        <item>Never be poor or hard to grow up, never be naive.</item>
+        <item>From ancient times heroes went out of purgatory, from wealth to mortality.</item>
+        <item>Drunk life, dream death, who become a weapon, Tuo Ma long gun to determine the universe.</item>
+        <item>Swing the army thousands of miles in the mountains and rivers, the name of the descendants.</item>
+    </string-array>
 </resources>
