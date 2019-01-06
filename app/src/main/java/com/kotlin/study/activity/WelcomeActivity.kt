@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.Looper
 import android.support.annotation.RequiresApi
 import android.support.v4.view.ViewPager
+import android.transition.Visibility
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import com.kotlin.study.KotlinApplication
@@ -44,20 +46,29 @@ class WelcomeActivity : SupportActivity(){
         val timerTast = TimerTasks(WelcomeActivity)
         timer.schedule(timerTast,3000)
         initSloganText()
+        tvSkip.setOnClickListener {
+            goMainActivity()
+        }
 
     }
 
     class TimerTasks(private val baseContext: WelcomeActivity) : java.util.TimerTask(){
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun run() {
-            Log.d("kotlin","jump")
-//            Looper.prepare()
-            /*Toast.makeText(baseContext, "inside thread : Jump it", Toast.LENGTH_SHORT).show()
-            var intent = Intent(baseContext, MainActivity::class.java)
+            Log.e("kotlin","jump"+ Thread.currentThread().name)
+            Looper.prepare()
+//            Toast.makeText(baseContext, "inside thread : Jump it", Toast.LENGTH_SHORT).show()
+            /*var intent = Intent(baseContext, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             baseContext.startActivity(intent)
             baseContext.finish()*/
-            baseContext.doUpAnimator()
-//            Looper.loop()
+
+            baseContext.runOnUiThread {
+                baseContext.doUpAnimator()
+            }
+            Looper.loop()
+
+
         }
 
     }
@@ -71,6 +82,7 @@ class WelcomeActivity : SupportActivity(){
         tv_slogan_zh.printText(application.resources.getStringArray(R.array.slogan_array_zh)[0])
 
         pageIndicatorView.count = 4
+        pageIndicatorView.visibility = View.GONE
         pageIndicatorView.setSelected(0)
 
         mFragmentList = mutableListOf()
@@ -109,7 +121,7 @@ class WelcomeActivity : SupportActivity(){
         readyGoThenKillSelf(MainActivity::class.java)
     }
 
-    fun readyGoThenKillSelf(clazz: Class<out Any>, bundle: Bundle? = null) {
+    private fun readyGoThenKillSelf(clazz: Class<out Any>, bundle: Bundle? = null) {
         val intent = Intent(this, clazz)
         bundle?.let {
             intent.putExtras(bundle)
@@ -121,6 +133,7 @@ class WelcomeActivity : SupportActivity(){
     /**
      * 执行上升动画
      */
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun doUpAnimator() {
         val moveY = DensityUtils.dpToPx(100)
         val upAnimator = ObjectAnimator.ofFloat(ll_move_container, "translationY", 0f, -moveY.toFloat())
@@ -140,6 +153,9 @@ class WelcomeActivity : SupportActivity(){
         }
         upAnimator.duration = 2000
         upAnimator.start()
+        upAnimator.doOnEnd {
+            doBackgroundAnimator()
+        }
     }
 
     /**
@@ -147,13 +163,23 @@ class WelcomeActivity : SupportActivity(){
      */
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun doBackgroundAnimator() {
-        val backgroundAnimator = ValueAnimator.ofArgb(0, 0xffffffff.toInt())
+        val backgroundAnimator = ValueAnimator.ofArgb(0xff444444.toInt(), 0xff26A599.toInt())
         backgroundAnimator.addUpdateListener {
-//            mLoadingContainer.setBackgroundColor(it.animatedValue as Int)
+            rootMain.setBackgroundColor(it.animatedValue as Int)
         }
-//        backgroundAnimator.doOnEnd { doTextAnimator() }
+        backgroundAnimator.doOnEnd {
+            doTextAnimator()
+        }
         backgroundAnimator.duration = 2000
         backgroundAnimator.start()
+    }
+
+    private fun doTextAnimator() {
+        tv_slogan_zh.visibility = View.VISIBLE
+        tv_slogan_en.visibility = View.VISIBLE
+        pageIndicatorView.visibility = View.VISIBLE
+        tvSkip.visibility = View.VISIBLE
+
     }
 
     override fun onDestroy() {
