@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">KotlinStudy</string>
-    <string name="action_settings">MoreThan</string>
+    <string name="action_settings">Search</string>
     <string name="section_format">KOTLIN SECRET: %1$d</string>
+    <string name="net_error_message">网络失败</string>
     <!--《增广贤文》-->
     <string-array name="slogan_array_zh">
         <item>未曾清贫难成人，不经打击老天真。</item>

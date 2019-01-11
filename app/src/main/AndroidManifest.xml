@@ -66,6 +66,10 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".activity.SearchHotActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

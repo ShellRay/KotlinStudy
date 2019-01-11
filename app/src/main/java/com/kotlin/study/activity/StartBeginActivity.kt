@@ -187,4 +187,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun toggleOverridePendingTransition() = true
+
+    override fun getOverridePendingTransition() = TransitionMode.TOP
 }

@@ -5,12 +5,14 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- 跳转黑屏问题重点 -->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="MyStyle" parent="Theme.AppCompat.NoActionBar">
@@ -25,4 +27,17 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>  <!--设置不覆盖锚点-->
+        <item name="android:dropDownVerticalOffset">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:popupBackground">@color/colorPrimaryDark</item> <!--更改背景颜色-->
+    </style>
+
+    <style name="ToolBarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionMenuTextColor">@android:color/white</item> <!--  敲定颜色-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item> <!--设置item的位置等style-->
+        <item name="android:textSize">15sp</item> <!--  搞掂字体大小-->
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>

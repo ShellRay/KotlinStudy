@@ -9,10 +9,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
 import kotlinx.android.synthetic.main.activity_fundamental_type.*
 
-class SingleInstanceActivity :AppCompatActivity(){
+class SingleInstanceActivity :BaseActivity(){
 
     //kotlin取消了activity.this的用法
     val instance = lazy { this }

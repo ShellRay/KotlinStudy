@@ -3,7 +3,6 @@ package com.kotlin.study.widget.font
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
-import com.jennifer.andy.simpleeyes.widget.font.CustomFontTextView
 
 
 /**

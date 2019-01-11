@@ -1,6 +1,7 @@
 package com.kotlin.study.activity
 
 import android.content.Intent
+import android.os.Build
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +18,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
+import com.kotlin.study.R.id.action_settings
 import com.kotlin.study.utils.GlideLoadUtils
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,11 +38,14 @@ class MainActivity : BaseActivity() {
 
     val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dragen, R.mipmap.dead3, R.mipmap.beauty, R.mipmap.dragen, R.mipmap.tiger, R.mipmap.xingzai)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
+        //设置右边toolbar图标
+        toolbar.setOverflowIcon(getDrawable(R.mipmap.search_icon));
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
@@ -72,6 +78,7 @@ class MainActivity : BaseActivity() {
         val id = item.itemId
 
         if (id == R.id.action_settings) {
+            startActivity(Intent(this,SearchHotActivity::class.java))
             return true
         }
 
@@ -145,4 +152,8 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
+    override fun toggleOverridePendingTransition() = true
+
+    override fun getOverridePendingTransition() = TransitionMode.FADE
 }
