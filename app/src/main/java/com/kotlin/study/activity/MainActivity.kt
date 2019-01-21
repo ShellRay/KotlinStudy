@@ -45,7 +45,7 @@ class MainActivity : BaseActivity() {
 
         setSupportActionBar(toolbar)
         //设置右边toolbar图标
-        toolbar.setOverflowIcon(getDrawable(R.mipmap.search_icon));
+        toolbar.overflowIcon = getDrawable(R.mipmap.search_icon);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
@@ -137,7 +137,7 @@ class MainActivity : BaseActivity() {
              * The fragment argument representing the section number for this
              * fragment.
              */
-            private val ARG_SECTION_NUMBER = "section_number"
+            private const val ARG_SECTION_NUMBER = "section_number"
 
             /**
              * Returns a new instance of this fragment for the given section

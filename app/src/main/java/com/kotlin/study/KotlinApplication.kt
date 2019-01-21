@@ -2,6 +2,8 @@ package com.kotlin.study
 
 import android.app.Application
 import android.content.res.Resources
+import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.imagepipeline.core.ImagePipelineConfig
 
 /**
  * @author ShellRay
@@ -41,10 +43,10 @@ class KotlinApplication: Application() {
      * 初始化Fresco,打开压缩
      */
     private fun initFresco() {
-        /*val config = ImagePipelineConfig.newBuilder(this)
+        val config = ImagePipelineConfig.newBuilder(this)
                 .setDownsampleEnabled(true)
                 .build()
-        Fresco.initialize(this, config)*/
+        Fresco.initialize(this, config)
     }
 
     /**

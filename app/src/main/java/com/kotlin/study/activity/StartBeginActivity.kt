@@ -32,7 +32,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "FundamentalType",
             "SingleInstance",
             "Function",
-            "JetBrains",
+            "SimpleEyes",
             "JetBrains",
             "JetBrains",
             "JetBrains",
@@ -141,6 +141,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     3 ->  startActivity(Intent(baseContext,FundamentalTypeActivity::class.java))
                     4 ->  startActivity(Intent(baseContext,SingleInstanceActivity::class.java))
                     5 ->  startActivity(Intent(baseContext,FunctionActivity::class.java))
+                    6 ->  startActivity(Intent(baseContext,SimpleEyesActivity::class.java))
+
 
                     else -> toast("no view setClick event")
                 }

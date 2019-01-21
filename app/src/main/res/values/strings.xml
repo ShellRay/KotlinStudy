@@ -17,4 +17,19 @@
         <item>Drunk life, dream death, who become a weapon, Tuo Ma long gun to determine the universe.</item>
         <item>Swing the army thousands of miles in the mountains and rivers, the name of the descendants.</item>
     </string-array>
+
+    <string name="VideoView_error_text_invalid_progressive_playback">Invalid progressive playback
+    </string>
+    <string name="VideoView_error_text_unknown">Unknown</string>
+    <string name="VideoView_error_button">OK</string>
+    <string name="video_error_notice">视频加载失败</string>
+
+    <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
+    <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
+    <string name="VideoView_ar_aspect_wrap_content">Aspect / Wrap item</string>
+    <string name="VideoView_ar_match_parent">Free / Fill parent</string>
+    <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
+    <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
+    <string name="N_A">N/A</string>
+    <string name="elite">精选</string>
 </resources>

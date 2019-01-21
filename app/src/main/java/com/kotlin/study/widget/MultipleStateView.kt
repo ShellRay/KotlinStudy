@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.kotlin.study.R
+import com.kotlin.study.video.videohome.NetLoadingView
 
 
 /**
@@ -72,7 +73,7 @@ class MultipleStateView : RelativeLayout {
             val imageView = mEmptyView?.findViewById<ImageView>(R.id.iv_image)
             val errorText = mEmptyView?.findViewById<TextView>(R.id.tv_message_info)
             imageView?.setImageResource(R.mipmap.mojie)
-            errorText?.setText("空即是色")
+            errorText?.text = "空即是色"
             mEmptyView?.setOnClickListener(onClickListener)
             addStateView(mEmptyView)
         } else {
@@ -139,7 +140,7 @@ class MultipleStateView : RelativeLayout {
      */
     private fun setLoadingView(onClickListener: OnClickListener) {
         if (mLoadingView == null) {
-//            mLoadingView = NetLoadingView(context)
+            mLoadingView = NetLoadingView(context)
             mLoadingView?.tag = State.LOADING
             mLoadingView?.setOnClickListener(onClickListener)
             addStateView(mLoadingView)

@@ -56,4 +56,5 @@
     <color name="gray_EDEEEC">#EDEEEC</color>
     <color name="gray_B7B9B8">#B7B9B8</color>
     <color name="gray_EFF0EF">#EFF0EF</color>
+    <color name="transparent">#00000000</color>
 </resources>
