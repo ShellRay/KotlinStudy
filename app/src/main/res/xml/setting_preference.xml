@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="PreferenceScreen">
+<!--    <CheckBoxPreference
+        android:key="key_checkbox_preference"
+        android:summary="Some summay for CheckBoxPreference"
+        android:title="The Title Of CheckBoxPreference" >
+
+        <Preference
+            android:key="key_prerence"
+            android:title="Preferece"
+            android:summary="Preference Demo"
+            />
+
+    </CheckBoxPreference>-->
+
+    <PreferenceCategory
+        android:key="key_prerence"
+        android:summary="Preference Categories Summary"
+        android:title="Preference Categories">
+
+        <CheckBoxPreference
+            android:icon="@mipmap/ic_launcher"
+            android:key="key_checkbox_preference"
+            android:title="do you like this"
+            android:summaryOff="no,i dont"
+            android:summaryOn="yes, i like it "
+            android:summary="CheckboxPreference summary"/>
+
+        <Preference
+            android:title="Skip intent item"
+            android:key="key_pre"
+            android:icon="@mipmap/mojie">
+
+        <intent android:action="android.intent.action.VIEW"
+            android:data="http://www.hao123.com"/>
+        <!--可以通过<extra>传附加信息getIntent().getStringExtra("reused_key") -->
+        <!--<extra
+            android:name="key"
+            android:value="value"/>-->
+
+            <!--可以跳转界面 -->
+      <!--      <intent
+                android:action="ACTION_A_INTENT"
+                android:targetPackage="com.kotlin.study"
+                android:targetClass="com.kotlin.study.activity.SimpleActivity">
+            </intent>-->
+
+        </Preference>
+        <!--android:layout="@layout/activity_main"  设置了layout就会展示layout视图-->
+
+        <SwitchPreference
+            android:title="switch your like"
+            android:key="key_switch_real"
+            android:icon="@mipmap/mojie"
+            android:switchTextOn = "YES"
+            android:switchTextOff = "NO"
+            android:defaultValue="true"
+            />
+
+        <SwitchPreference
+            android:title="switch your like"
+            android:key="key_switch"
+            android:icon="@mipmap/mojie"
+            android:switchTextOn = "YES"
+            android:switchTextOff = "NO"
+            android:defaultValue="true"
+            />
+
+        <EditTextPreference
+            android:icon="@mipmap/mojieicon"
+            android:key="key_edtkpreference"
+            android:title="EditPreference"
+            android:summary="EditPreference summary"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>

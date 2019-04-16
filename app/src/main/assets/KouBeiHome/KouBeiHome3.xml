@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RatioLayout
+        layoutWidth="wrap_content"
+        layoutHeight="wrap_content"
+        layoutRatio="1">
+        <VText
+                text="${item_title}"
+                textSize="18"
+                textColor="#ffffff"
+                gravity ="v_center|left"
+                paddingLeft = "10"
+                layoutRatio="2"
+                layoutWidth="match_parent"
+                layoutHeight="40"/>
+	<VHLayout
+        layoutWidth="match_parent"
+        orientation = "H"
+        gravity="right"
+        layoutHeight="45"
+        layoutRatio="1">
+
+         <VText
+         		visibility = "${enum_visibility}"
+         		layoutWidth="wrap_content"
+                layoutHeight="wrap_content"
+         		flag = "flag_clickable"
+         		layoutMarginRight ="10"
+         		padding = "5"
+         		paddingLeft = "10"
+         		paddingRight ="10"
+         		borderRadius = "5"
+                text="${item_title_more}"
+                layoutGravity="v_center"
+                layoutRatio="1"
+                background = "#999999"
+                textSize="16"
+                textColor="#ffffff"
+                />
+     </VHLayout>
+</RatioLayout>

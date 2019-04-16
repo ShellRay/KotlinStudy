@@ -2,15 +2,25 @@ package com.kotlin.study
 
 import android.app.Application
 import android.content.res.Resources
+import android.support.multidex.MultiDexApplication
+import android.widget.ImageView
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.imagepipeline.core.ImagePipelineConfig
+import com.kotlin.study.greendaogenlib.utils.DBHelper
+import com.kotlin.study.utils.GlideLoadUtils
+import com.tmall.wireless.tangram.util.IInnerImageSetter
+import com.tmall.wireless.tangram.TangramBuilder
+import io.reactivex.annotations.NonNull
+import io.reactivex.annotations.Nullable
+import kotlinx.android.synthetic.main.fragment_main.view.*
+
 
 /**
  * @author ShellRay
  * Created  on 2019/1/4.
  * @description
  */
-class KotlinApplication: Application() {
+class KotlinApplication: MultiDexApplication() {
 
     companion object {
 
@@ -28,15 +38,30 @@ class KotlinApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
         INSTANCE = this
 //        GlobalConfig.setApplicationContext(this)
 //        GlobalConfig.setAppDebug(false)
 //        GlobalConfig.setApplicationRootDir("simpleeyes")
         initARoute()
+        DBHelper.getInstance(this)
         initFresco()
+        initTangram()
         //todo 这里还要做崩溃检查 腾讯的bugly 热更新等操作
 
 
+    }
+
+    /**
+     * 初始化 Tangram 环境
+     * */
+    private fun initTangram() {
+        TangramBuilder.init(this, object : IInnerImageSetter {
+            override fun <IMAGE : ImageView> doLoadImageUrl(view: IMAGE, url: String?) {
+                //假设你使用 Picasso 加载图片                		Picasso.with(context).load(url).into(view);
+                GlideLoadUtils.getInstance().loadImageAsGif(applicationContext,url,view)
+            }
+        }, ImageView::class.java)
     }
 
     /**

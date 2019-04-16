@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NImage 
+	flag = "flag_clickable"
+		layoutWidth="160"
+		layoutHeight = "match_parent"
+		src="${fuli_url}"/>

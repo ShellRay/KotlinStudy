@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.preference.PreferenceActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -19,6 +20,8 @@ import com.kotlin.study.itemdecoration.SimpleDivederItem
 import com.kotlin.study.utils.ConvenientUtil
 import com.kotlin.study.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_start.*
+import android.preference.PreferenceManager
+import android.text.TextUtils
 
 /**
  * Created by GG on 2018/2/27.
@@ -33,9 +36,9 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "SingleInstance",
             "Function",
             "SimpleEyes",
-            "JetBrains",
-            "JetBrains",
-            "JetBrains",
+            "PreferenceActivity",
+            "Tangram",
+            "GreenDao",
             "JetBrains",
             "JetBrains",
             "JetBrains",
@@ -142,12 +145,25 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     4 ->  startActivity(Intent(baseContext,SingleInstanceActivity::class.java))
                     5 ->  startActivity(Intent(baseContext,FunctionActivity::class.java))
                     6 ->  startActivity(Intent(baseContext,SimpleEyesActivity::class.java))
-
+                    7 ->  startActivity(Intent(baseContext, SettingActivity::class.java))
+                    8 ->  startActivity(Intent(baseContext, TangramActivity::class.java))
+                    9 ->  startActivity(Intent(baseContext, GreenDaoActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }
             }
         })
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val pre = PreferenceManager.getDefaultSharedPreferences(this)
+        val dir = pre.getString("key_edtkpreference", "")//两个参数,一个是key，就是在PreferenceActivity的xml中设置的,另一个是取不到值时的默认值
+        if(!TextUtils.isEmpty(dir)){
+            ToastUtils.showToast(this,"SettingActivity 中设置的值为："+dir)
+        }
 
     }
 

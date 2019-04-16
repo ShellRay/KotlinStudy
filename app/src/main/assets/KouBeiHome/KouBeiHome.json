@@ -1,0 +1,124 @@
+{
+    "jsondata": [
+        {
+            "type": "container-float",
+            "style": {
+                "align": "bottom_right",
+                "x": 10,
+                "y": 50
+            },
+            "items": [
+                {
+            "type": "KouBeiHome4",
+            "mune_list": [
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "美食",
+                    "action_mune":"code:1;context:菜单按钮，跳转页面"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "休闲娱乐",
+                    "action_mune":"code:2;context:菜单按钮，跳转页面"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "淘票票",
+                    "action_mune":"code:3;context:菜单按钮，跳转页面"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "超市"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "结婚"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "KTV"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "丽人/美发"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "机票/火车票"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "酒店预定"
+                },
+                {
+                    "type": "KouBeiHome0",
+                    "mune_icon_url": "https://img.alicdn.com/imgextra/i2/1910146537/TB2JRqIsTJYBeNjy1zeXXahzVXa_!!1910146537.jpg_160x160q90.jpg",
+                    "mune_item_text": "全部"
+                }
+            ],
+            "banner_url": "https://img.alicdn.com/tfs/TB12eXNsVzqK1RjSZSgXXcpAVXa-750-291.jpg_Q90.jpg",
+            "title_01": [
+                {
+                    "type": "KouBeiHome3",
+                    "item_title": "1212福利社",
+                    "item_title_more": "更多",
+                    "enum_visibility":"gone"
+                }
+            ],
+            "fuli_list": [
+                {
+                    "type": "KouBeiHome2",
+                    "fuli_url": "https://img.alicdn.com/tps/i4/TB1zum8trPpK1RjSZFFSuu5PpXa.jpg"
+                },
+                {
+                    "type": "KouBeiHome2",
+                    "fuli_url": "https://img.alicdn.com/tps/i4/TB1zum8trPpK1RjSZFFSuu5PpXa.jpg"
+                },
+                {
+                    "type": "KouBeiHome2",
+                    "fuli_url": "https://img.alicdn.com/tps/i4/TB1zum8trPpK1RjSZFFSuu5PpXa.jpg"
+                }
+            ],
+            "title_02": [
+                {
+                    "type": "KouBeiHome3",
+                    "item_title": "好货秒杀",
+                    "item_title_more": "更多",
+                    "enum_visibility":"visible"
+                }
+            ],
+            "miaosha_list": [
+                {
+                    "type": "KouBeiHome1",
+                    "item_goods_icon": "https://img.alicdn.com/tps/i4/TB1JQFrqIfpK1RjSZFOSuu6nFXa.jpg",
+                    "item_goods_name": "永和大王",
+                    "item_goods_context": "【省11元】 卤肉饭 配饮料",
+                    "item_goods_price": "11"
+                },
+                {
+                    "type": "KouBeiHome1",
+                    "item_goods_icon": "https://img.alicdn.com/tps/i4/TB1JQFrqIfpK1RjSZFOSuu6nFXa.jpg",
+                    "item_goods_name": "鲜丰水果",
+                    "item_goods_context": "【】带叶鲜橙买一件送一件",
+                    "item_goods_price": "8。80"
+                },
+                {
+                    "type": "KouBeiHome1",
+                    "item_goods_icon": "https://img.alicdn.com/tps/i4/TB1JQFrqIfpK1RjSZFOSuu6nFXa.jpg",
+                    "item_goods_name": "必胜客",
+                    "item_goods_context": "买一送一 法式费了牛排",
+                    "item_goods_price": "99"
+                }
+            ]
+        }
+    ]
+}

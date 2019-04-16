@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VHLayout
+	orientation="V"
+	layoutWidth="match_parent"
+	layoutHeight="match_parent"
+	background="#ff7746">
+	<Grid
+		layoutMargin = "10"
+		layoutWidth="match_parent"
+		layoutHeight="wrap_content"
+		colCount = "5"
+		itemVerticalMargin = "5"
+		dataTag ="${mune_list}"/>
+	<NImage 
+		flag = "flag_clickable"
+		layoutWidth="match_parent"
+		layoutHeight="140"
+		src = "${banner_url}"/>
+	<Grid 
+		layoutWidth = "match_parent"
+		layoutHeight = "wrap_content"
+		dataTag = "${title_01}"
+		colCount = "1"
+		itemHorizontalMargin = "1"/>
+	<Grid 
+		layoutHeight = "80"
+		layoutWidth = "match_parent"
+		layoutMargin = "10"
+		itemHorizontalMargin = "5"
+		colCount = "3"
+		dataTag = "${fuli_list}"/>
+	<Grid 
+		layoutWidth = "match_parent"
+		layoutHeight = "wrap_content"
+		dataTag = "${title_02}"
+		colCount = "1"
+		itemHorizontalMargin = "1"/>
+	<Grid 
+		layoutHeight = "wrap_content"
+		layoutWidth = "match_parent"
+		layoutMargin = "10"
+		itemHorizontalMargin = "5"
+		colCount = "3"
+		dataTag = "${miaosha_list}"/>
+		
+</VHLayout>

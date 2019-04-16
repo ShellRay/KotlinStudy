@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VHLayout
+	orientation="V"
+	layoutWidth="115"
+	layoutHeight = '160'
+	background="#ffffff"
+	borderRadius="6"
+	flag = "flag_clickable">
+	<NImage 
+		layoutWidth="match_parent"
+		layoutHeight = "85"
+		borderRadius = "15"
+		 src="${item_goods_icon}"/>
+	<NText 
+		layoutWidth="match_parent"
+		layoutHeight = "wrap_content"
+		layoutMarginTop="5"
+		paddingLeft = "5"
+		lines ="1"
+		text = "${item_goods_name}"
+		textSize = "16"
+		textColor = "#333333"
+		/>	
+	<NText 
+		layoutWidth="match_parent"
+		layoutHeight = "wrap_content"
+		layoutMarginTop="5"
+		paddingLeft = "5"
+		lines ="1"
+		text = "${item_goods_context}"
+		textSize = "14"
+		textColor = "#666666"
+		/>	
+	<NText 
+		layoutWidth="match_parent"
+		layoutHeight = "wrap_content"
+		layoutMarginTop="5"
+		paddingLeft = "5"
+		lines ="1"
+		text = "${item_goods_price}"
+		textSize = "18"
+		textColor = "#fe2035"
+		/>		 
+	
+
+
+</VHLayout>

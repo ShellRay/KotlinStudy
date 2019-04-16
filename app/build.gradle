@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -13,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,6 +31,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:multidex:1.0.3'//超过65533方法
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
@@ -66,6 +70,31 @@ dependencies {
     implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.4'
     implementation 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.4'
     implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.4'
+
+    //虽然 vlayout 布局灵活，然而 API 相对原始，手工维护数据及 LayoutHelper 比较麻烦，
+    // 强烈建议大家使用 Tangram-Android 来间接使用 vlayout，Tangram 具备 vlayout 里所有的功能，
+    // 且隐藏了细节，通过数据配置即可搭建页面，能避免绝大多数 Issue 里提到的问题，而且重大更新
+    // 维护主要基于 Tangram，包括局部刷新、响应式接口等。
+    implementation 'com.alibaba.android:tangram:2.0.5@aar'
+    compile('com.alibaba.android:vlayout:1.2.18@aar') {
+        changing = true
+    }
+    compile('com.alibaba.android:virtualview:1.3.8@aar') {
+        transitive true
+    }
+    compile ('com.alibaba.android:ultraviewpager:1.0.7.7@aar') {
+        transitive = true
+    }
+
+    /////////////////////////////////////////////////////////////
+    implementation 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao-generator:3.2.0'
+    //没合并前gradle引用 加密
+    compile 'net.zetetic:android-database-sqlcipher:3.5.7'
+    implementation 'com.github.zhangliangming:Register:v1.1'
+    //////////////////////////////////////////////////////////////
+
+
 }
 
 //解决glide生成注解失败问题

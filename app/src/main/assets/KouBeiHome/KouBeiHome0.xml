@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VHLayout
+	orientation="V"
+	layoutWidth="wrap_content"
+	layoutHeight = 'wrap_content'
+	flag = "flag_clickable"
+	action = "${action_mune}">
+	<NImage
+		tag = "Circle"
+		layoutWidth= '50'
+		layoutHeight='50'
+		src = "${mune_icon_url}"
+		layoutGravity='h_center'/>
+
+	<NText
+		layoutWidth= 'wrap_content'
+		layoutHeight='wrap_content'
+		text = '${mune_item_text}'
+		textSize = "15"
+		layoutGravity='h_center'/>
+</VHLayout>

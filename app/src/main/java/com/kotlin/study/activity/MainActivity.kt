@@ -23,6 +23,9 @@ import com.kotlin.study.utils.GlideLoadUtils
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
+import com.tmall.wireless.tangram.TangramBuilder
+
+
 
 class MainActivity : BaseActivity() {
 
@@ -48,6 +51,9 @@ class MainActivity : BaseActivity() {
         toolbar.overflowIcon = getDrawable(R.mipmap.search_icon);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
+
+        val builder = TangramBuilder.newInnerBuilder(this@MainActivity)
+
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
         // Set up the ViewPager with the sections adapter.
