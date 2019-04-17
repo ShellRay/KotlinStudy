@@ -164,14 +164,20 @@ class WelcomeActivity : SupportActivity(){
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun doBackgroundAnimator() {
         val backgroundAnimator = ValueAnimator.ofArgb(0xff444444.toInt(), 0xff26A599.toInt())
+        iv_head_inner.visibility = View.VISIBLE
+        val rotateAnimator = ObjectAnimator.ofFloat(iv_head_inner, "rotation", 0f, 720f)
+        rotateAnimator.repeatCount = ObjectAnimator.INFINITE
+
         backgroundAnimator.addUpdateListener {
             rootMain.setBackgroundColor(it.animatedValue as Int)
         }
         backgroundAnimator.doOnEnd {
             doTextAnimator()
         }
+        rotateAnimator.duration = 2000
         backgroundAnimator.duration = 2000
         backgroundAnimator.start()
+        rotateAnimator.start()
     }
 
     private fun doTextAnimator() {
