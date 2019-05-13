@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.preference.PreferenceActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -39,7 +38,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "PreferenceActivity",
             "Tangram",
             "GreenDao",
-            "JetBrains",
+            "Interpolator",
             "JetBrains",
             "JetBrains",
             "JetBrains"
@@ -148,6 +147,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     7 ->  startActivity(Intent(baseContext, SettingActivity::class.java))
                     8 ->  startActivity(Intent(baseContext, TangramActivity::class.java))
                     9 ->  startActivity(Intent(baseContext, GreenDaoActivity::class.java))
+                    10 ->  startActivity(Intent(baseContext, InterplatorActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }
