@@ -90,20 +90,50 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PathEffectView的使用"
-                />
+                android:text="PathEffectView的使用" />
+
             <com.kotlin.study.widget.PathEffectView
-                android:layout_marginTop="70dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp" />
 
             <TextSwitcher
                 android:id="@+id/textSwitcher"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"/>
+                android:layout_gravity="center" />
+
+            <ImageSwitcher
+                android:id="@+id/imgSwitcher"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="100dp"
+                android:layout_marginTop="30dp"
+                android:inAnimation="@android:anim/fade_in"
+                android:outAnimation="@android:anim/fade_out" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnadd"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="上一张" />
+
+                <Button
+                    android:id="@+id/btnSub"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="下一张" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
