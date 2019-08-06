@@ -8,7 +8,6 @@ import com.kotlin.study.widget.font.TypefaceManager
 
 
 /**
- * Author:  andy.xwt
  * Date:    2017/10/30 16:45
  * Description:自定义字体textView
  */

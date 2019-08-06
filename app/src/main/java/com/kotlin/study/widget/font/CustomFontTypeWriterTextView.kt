@@ -6,7 +6,6 @@ import android.util.AttributeSet
 
 
 /**
- * Author:  andy.xwt
  * Date:    2017/12/12 11:10
  * Description:打印文字TextView
  */

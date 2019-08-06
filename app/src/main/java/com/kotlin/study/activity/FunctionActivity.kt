@@ -155,6 +155,11 @@ class FunctionActivity : BaseActivity() {
 
     }
 
+    override fun finish() {
+        super.finish()
+        rcyLambda.layoutManager = null
+        rcyLambda.adapter = null
+    }
     inner class ClickCallback(private val kotlinCatalog: FunctionActivity) : MainAdapter.OnClickCallback {
         override fun onClick(view: View, position: Int) {
             toast(catalogs[position].substring(0, 10))

@@ -21,6 +21,7 @@ import com.kotlin.study.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_start.*
 import android.preference.PreferenceManager
 import android.text.TextUtils
+import com.kotlin.study.utils.ResourceUtils
 
 /**
  * Created by GG on 2018/2/27.
@@ -153,6 +154,21 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                 }
             }
         })
+
+        ResourceUtils.getInstance().intialize()
+
+    }
+
+    override fun finish() {
+        super.finish()
+        recycle.layoutManager = null
+        recycle.adapter = null
+
+        recycleTitle.layoutManager =null
+        recycleTitle.adapter = null
+
+        svgaPlayer.setOnClickListener(null)
+        simple.setOnClickListener(null)
 
 
     }

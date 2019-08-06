@@ -3,9 +3,7 @@ package com.kotlin.study.activity
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
-import android.os.Build
-import android.os.Bundle
-import android.os.Looper
+import android.os.*
 import android.support.annotation.RequiresApi
 import android.support.v4.view.ViewPager
 import android.transition.Visibility
@@ -32,19 +30,32 @@ class WelcomeActivity : SupportActivity(){
     private lateinit var mSplashVideoFragmentAdapter: SplashVideoFragmentAdapter
 
 
-    private val timer1: Timer
-        get() {
-            val timer = Timer()
-            return timer
-        }
+    private var timerTast:TimerTask? =null
+    private var timer1:Timer? =null
+    private var handler:Handler? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-        var WelcomeActivity = this@WelcomeActivity
-        val timer = timer1
-        val timerTast = TimerTasks(WelcomeActivity)
-        timer.schedule(timerTast,3000)
+        handler = Handler(object :Handler.Callback{
+            override fun handleMessage(msg: Message?): Boolean {
+                if(msg!!.what == 100){
+                    doUpAnimator()
+                }
+                return true
+            }
+        })
+        timerTast = object:TimerTask(){
+            override fun run() {
+
+                 handler!!.sendEmptyMessage(100)
+            }
+        }
+
+        timer1 = Timer()
+
+        timer1!!.schedule(timerTast,3000)
+
         initSloganText()
         tvSkip.setOnClickListener {
             goMainActivity()
@@ -52,7 +63,7 @@ class WelcomeActivity : SupportActivity(){
 
     }
 
-    class TimerTasks(private val baseContext: WelcomeActivity) : java.util.TimerTask(){
+    class TimerTasks(private val context: WelcomeActivity) : java.util.TimerTask(){
         @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun run() {
             Log.e("kotlin","jump"+ Thread.currentThread().name)
@@ -63,8 +74,8 @@ class WelcomeActivity : SupportActivity(){
             baseContext.startActivity(intent)
             baseContext.finish()*/
 
-            baseContext.runOnUiThread {
-                baseContext.doUpAnimator()
+            context.runOnUiThread {
+                context.doUpAnimator()
             }
             Looper.loop()
 
@@ -136,8 +147,8 @@ class WelcomeActivity : SupportActivity(){
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun doUpAnimator() {
         val moveY = DensityUtils.dpToPx(100)
-        val upAnimator = ObjectAnimator.ofFloat(ll_move_container, "translationY", 0f, -moveY.toFloat())
-        upAnimator.addUpdateListener {
+        upAnimator = ObjectAnimator.ofFloat(ll_move_container, "translationY", 0f, -moveY.toFloat())
+        upAnimator!!.addUpdateListener {
             if (it.currentPlayTime in 600..1500) {
                 iv_head_outer.setImageResource(R.drawable.ic_eye_white_outer)
                 iv_head_inner.setImageResource(R.drawable.ic_eye_white_inner)
@@ -151,32 +162,33 @@ class WelcomeActivity : SupportActivity(){
             }
 
         }
-        upAnimator.duration = 2000
-        upAnimator.start()
-        upAnimator.doOnEnd {
+        upAnimator!!.duration = 2000
+        upAnimator!!.start()
+        upAnimator!!.doOnEnd {
             doBackgroundAnimator()
         }
     }
-
+    private var backgroundAnimator: ValueAnimator?=null
+    private var upAnimator: ValueAnimator?=null
     /**
      * 执行背景动画
      */
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun doBackgroundAnimator() {
-        val backgroundAnimator = ValueAnimator.ofArgb(0xff444444.toInt(), 0xff26A599.toInt())
+        backgroundAnimator= ValueAnimator.ofArgb(0xff444444.toInt(), 0xff26A599.toInt())
         iv_head_inner.visibility = View.VISIBLE
         val rotateAnimator = ObjectAnimator.ofFloat(iv_head_inner, "rotation", 0f, 720f)
         rotateAnimator.repeatCount = ObjectAnimator.INFINITE
 
-        backgroundAnimator.addUpdateListener {
+        backgroundAnimator!!.addUpdateListener {
             rootMain.setBackgroundColor(it.animatedValue as Int)
         }
-        backgroundAnimator.doOnEnd {
+        backgroundAnimator!!.doOnEnd {
             doTextAnimator()
         }
         rotateAnimator.duration = 2000
-        backgroundAnimator.duration = 2000
-        backgroundAnimator.start()
+        backgroundAnimator!!.duration = 2000
+        backgroundAnimator!!.start()
         rotateAnimator.start()
     }
 
@@ -188,8 +200,24 @@ class WelcomeActivity : SupportActivity(){
 
     }
 
+    override fun finish() {
+        super.finish()
+        tvSkip.setOnClickListener(null)
+        timer1!!.cancel()
+        timerTast!!.cancel()
+        timer1 = null
+        timerTast = null
+        handler!!.removeCallbacksAndMessages(null)
+        iv_head_outer.setImageResource(0)
+        iv_head_inner.setImageResource(0)
+        view_pager.adapter = null
+        view_pager.addOnPageChangeListener(null)
+        upAnimator!!.addUpdateListener(null)
+        backgroundAnimator!!.addUpdateListener(null)
+
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        timer1.cancel()
     }
 }

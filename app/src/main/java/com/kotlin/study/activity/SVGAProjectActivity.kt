@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_svga.*
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
+import java.io.ObjectInput
 import java.net.URL
 
 /**
@@ -36,8 +37,7 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
 
         svgaPlayer.setOnClickListener(this)
         svgaCacheButton.setOnClickListener(this)
-
-        ResourceUtils.getInstance().intialize()
+        parser = SVGAParser(this)
     }
 
     override fun onClick(v: View?) {
@@ -46,12 +46,12 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
             svgaCacheButton -> loadAnimationsFromCache()
         }
     }
-
+    var parser:SVGAParser? = null
     private fun loadAnimationsFromCache() {
         toast("click")
 
         try {
-            var parser = SVGAParser(this)
+            parser = SVGAParser(this)
             val filePath = ResourceUtils.getInstance().getFilePath("1")
             val file = File(filePath)
             if (!file.exists()) {
@@ -60,7 +60,7 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
             }
             var `is`: InputStream? = FileInputStream(file)
 
-            parser.parse( `is`!!, "banner",
+            parser!!.parse( `is`!!, "banner",
 
                 object : SVGAParser.ParseCompletion {
 
@@ -72,6 +72,7 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
                     var drawable = SVGADrawable(videoItem, requestDynamicItemWithSpannableText("Pony 送了一打风油精给主播"))
                     svgaCache.setImageDrawable(drawable)
                     svgaCache.startAnimation()
+                    parser = null
                 }
 
             },true)
@@ -79,14 +80,14 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
             e.stackTrace
             SystemClock.sleep(3000)
             loadAnimationsFromCache()
+
         }
     }
 
     private fun loadAnimations() {
         try {
-            var parser = SVGAParser(this)
-
-            parser.parse(
+            var requestDynamicItemWithSpannableText:SVGADynamicEntity?= null
+            parser!!.parse(
                     URL("https://github.com/yyued/SVGA-Samples/blob/master/kingset.svga?raw=true"),
                     object : SVGAParser.ParseCompletion {
                         override fun onError() {
@@ -94,7 +95,9 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
                         }
 
                         override fun onComplete(videoItem: SVGAVideoEntity) {
-                            var drawable = SVGADrawable(videoItem, requestDynamicItemWithSpannableText("Pony 送了一打风油精给主播"))
+                            requestDynamicItemWithSpannableText = requestDynamicItemWithSpannableText("Pony 送了一打风油精给主播")
+                            var drawable = SVGADrawable(videoItem, requestDynamicItemWithSpannableText!!)
+                            requestDynamicItemWithSpannableText = null
                             svgaInternet.setImageDrawable(drawable)
                             svgaInternet.startAnimation()
                         }
@@ -116,10 +119,11 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
      * @return
      */
     private fun requestDynamicItemWithSpannableText(msg: String): SVGADynamicEntity {
+        var textPaint:TextPaint? = null
         val dynamicEntity = SVGADynamicEntity()
-        val spannableStringBuilder = SpannableStringBuilder(msg)
-        spannableStringBuilder.setSpan(ForegroundColorSpan(Color.YELLOW), 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        val textPaint = TextPaint()
+//        val spannableStringBuilder = SpannableStringBuilder(msg)
+//        spannableStringBuilder.setSpan(ForegroundColorSpan(Color.YELLOW), 0, 4, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        textPaint = TextPaint()
         textPaint.color = Color.GREEN
         textPaint.textSize = 28f
         /*dynamicEntity.setDynamicText(new StaticLayout(
@@ -137,16 +141,30 @@ class SVGAProjectActivity : BaseActivity(), View.OnClickListener {
         dynamicEntity.setDynamicText(msg, textPaint, "banner")
 
         dynamicEntity.setDynamicDrawer({ canvas, frameIndex ->
-            val aPaint = Paint()
+            var aPaint:Paint?=null
+             aPaint = Paint()
             aPaint.color = Color.RED
             aPaint.isAntiAlias = true
             canvas.drawCircle(55f, 55f, (frameIndex % 5).toFloat(), aPaint)//闪烁
             //                canvas.drawCircle(55, 55, 7, aPaint);
+
+            //必须 释放资源
+            aPaint = null
+            textPaint = null
             false
         }, "banner")//banner 是素材中的一个属性，只有存在才会将自定义的数字展示到其中
         return dynamicEntity
     }
 
+    override fun finish() {
+        super.finish()
+        //必须 释放资源
+        svgaCache.setImageDrawable(null)
+        svgaInternet.setImageDrawable(null)
+        svgaPlayer.setOnClickListener(null)
+        svgaCache.setOnClickListener(null)
+        parser = null
+    }
     private fun toast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }

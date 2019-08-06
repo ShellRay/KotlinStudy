@@ -2,6 +2,7 @@ package com.kotlin.study
 
 import android.app.Application
 import android.content.res.Resources
+import android.net.http.HttpResponseCache
 import android.support.multidex.MultiDexApplication
 import android.widget.ImageView
 import com.facebook.drawee.backends.pipeline.Fresco
@@ -13,6 +14,7 @@ import com.tmall.wireless.tangram.TangramBuilder
 import io.reactivex.annotations.NonNull
 import io.reactivex.annotations.Nullable
 import kotlinx.android.synthetic.main.fragment_main.view.*
+import java.io.File
 
 
 /**
@@ -49,6 +51,8 @@ class KotlinApplication: MultiDexApplication() {
         initTangram()
         //todo 这里还要做崩溃检查 腾讯的bugly 热更新等操作
 
+        val cacheDir = File(applicationContext.cacheDir, "http")
+        HttpResponseCache.install(cacheDir, 1024 * 1024 * 128)
 
     }
 

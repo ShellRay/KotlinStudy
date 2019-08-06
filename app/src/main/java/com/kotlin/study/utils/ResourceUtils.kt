@@ -237,6 +237,7 @@ class  ResourceUtils {
         if (connection != null) {
 
             connection.disconnect()
+            connection = null
         }
 
         return result
@@ -370,4 +371,7 @@ class  ResourceUtils {
         return Environment.getExternalStorageDirectory().toString() + "/kotlin/zip/" + version + "/" + gift_id + ".tmp"
     }
 
+    private fun release(){
+
+    }
 }
