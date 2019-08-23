@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout_topic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:titleEnabled="false"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                  <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_scrollFlags="scroll">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="280dp"
+                   android:src="@mipmap/invitingfriends"
+                   android:scaleType="fitXY"/>
+               <TextView
+                   android:id="@+id/tv_invite"
+                   android:layout_width="345dp"
+                   android:layout_height="40dp"
+                   android:text="立即邀请"
+                   android:textColor="#222"
+                   android:textSize="17dp"
+                   android:layout_centerHorizontal="true"
+                   android:gravity="center"
+                   android:background="#e1d1af"
+                  android:layout_marginTop="224dp"
+                   />
+
+           </RelativeLayout>
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar_topic"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    >
+
+                    <!--返回按钮-->
+                    <ImageView
+                        android:id="@+id/iv_back_topic"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:src="@mipmap/back_white"
+                        android:layout_gravity="left"
+                        />
+
+                    <TextView
+                        android:id="@+id/titleCenter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="立即邀请"
+                        android:textSize="19dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        />
+
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#25979797" />
+
+            <com.kotlin.study.widget.tableLayout.XTabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:xTabMode="scrollable"
+                app:xTabIndicatorWidth="75dp"
+                app:xTabTextColor="#999"
+                app:xTabSelectedTextColor="#222"
+                app:xTabIndicatorColor="#b0a377"
+                app:xTabIndicatorHeight="3dp"
+                app:xTabTextSize="14sp"
+                app:xTabSelectedTextSize="14sp"
+                app:xTabDividerWidth="0dp"
+                app:xTabDividerHeight="0dp"
+                app:xTabDividerColor="#000"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#25979797" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never">
+            </android.support.v4.view.ViewPager>
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

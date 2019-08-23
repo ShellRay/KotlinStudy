@@ -40,8 +40,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "Tangram",
             "GreenDao",
             "Interpolator",
-            "JetBrains",
-            "JetBrains",
+            "floatTable",
+            "XLayout",
             "JetBrains"
 
     )
@@ -149,6 +149,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     8 ->  startActivity(Intent(baseContext, TangramActivity::class.java))
                     9 ->  startActivity(Intent(baseContext, GreenDaoActivity::class.java))
                     10 ->  startActivity(Intent(baseContext, InterplatorActivity::class.java))
+                    11 ->  startActivity(Intent(baseContext, FloatTableActivity::class.java))
+                    12 ->  startActivity(Intent(baseContext, XLayoutActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }
