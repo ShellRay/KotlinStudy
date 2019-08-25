@@ -1,6 +1,7 @@
 package com.kotlin.study
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Resources
 import android.net.http.HttpResponseCache
 import android.support.multidex.MultiDexApplication
@@ -16,7 +17,8 @@ import io.reactivex.annotations.Nullable
 import kotlinx.android.synthetic.main.fragment_main.view.*
 import java.io.File
 
-
+val mAppContext: Context
+get() = KotlinApplication.INSTANCE
 /**
  * @author ShellRay
  * Created  on 2019/1/4.

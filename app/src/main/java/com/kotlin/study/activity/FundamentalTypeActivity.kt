@@ -2,21 +2,18 @@ package com.kotlin.study.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
+import com.kotlin.study.adapter.FundamentalAdapter
+import com.kotlin.study.mAppContext
 import kotlinx.android.synthetic.main.activity_fundamental_type.*
 
 class FundamentalTypeActivity:BaseActivity(){
 
     //kotlin取消了activity.this的用法
-    val instance = lazy { this }
+//    val instance = lazy { this }
 
     val catalogs = listOf<String>("kotlin的基本类型\n",
             "一、数字类型\n" +
@@ -199,48 +196,26 @@ class FundamentalTypeActivity:BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fundamental_type)
         rcyCatalog.layoutManager = LinearLayoutManager(this)
-        rcyCatalog.adapter = MainAdapter(catalogs,this,ClickCallback(this))
+        rcyCatalog.adapter = FundamentalAdapter(catalogs, object :FundamentalAdapter.OnClickCallback{
+            override fun onClick(view: View, position: Int) {
+                var intent = Intent()
+                when(position){
+                    0 -> intent.setClass(mAppContext, FundamentalTypeActivity::class.java)
 
-    }
-
-    inner class ClickCallback(private val kotlinCatalog: FundamentalTypeActivity) : MainAdapter.OnClickCallback {
-        override fun onClick(view: View, position: Int) {
-            var intent = Intent()
-            when(position){
-                0 -> intent.setClass(kotlinCatalog, FundamentalTypeActivity::class.java)
-
+                }
+                if(position == 0) {
+                    startActivity(intent)
+                }
             }
-            startActivity(intent)
-        }
+        })
+
     }
 
-
-    class MainAdapter(val items: List<String>, val instances: FundamentalTypeActivity, clickCallback: OnClickCallback?) : RecyclerView.Adapter<MainAdapter.ViewHolder>()
-    {
-
-        private var instance = instances
-        private var mOnClickCallback = clickCallback
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(TextView(parent.context))
-        }
-
-        override fun getItemCount(): Int = items.size
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.textView.text = items[position]
-            holder.textView.textSize = 17f
-            holder.textView.setTextColor(ContextCompat.getColor(instance,R.color.colorPrimaryDark))
-            holder.textView.setOnClickListener{
-                mOnClickCallback!!.onClick(holder.textView,position)
-            }
-        }
-
-        class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
-
-        interface OnClickCallback {
-            fun onClick(view: View, position: Int)
-        }
+    override fun finish() {
+        super.finish()
+        rcyCatalog.layoutManager = null
+        rcyCatalog.adapter=null
     }
+
 
 }
