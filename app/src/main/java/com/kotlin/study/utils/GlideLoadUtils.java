@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.kotlin.study.GlideApp;
 import com.kotlin.study.R;
@@ -64,4 +65,18 @@ public class GlideLoadUtils<T> {
                 .into(view);
     }
 
+    public void LoadRoundImage(Context context, String url, ImageView imageView, int i) {
+        GlideApp
+                .with(context)
+                .asBitmap()
+                .load(url)
+                .error(R.mipmap.mojieicon)
+                .transform(new RoundedCorners(convertDpToPixel(context,i)))
+                .into(imageView);
+    }
+
+    private int convertDpToPixel(Context context,int dp){
+         float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
+    }
 }
