@@ -66,6 +66,7 @@ class ViewPagerIndicator(context: Context, attrs: AttributeSet) : View(context, 
         mAnimation = array.getBoolean(R.styleable.ViewPagerIndicator_vpi_animation, true)
         array.recycle()
         when (mIndicatorType) {
+//            mControlPoint = Array<Point>(mNum){i -> Point() }//数组添加数据方法 这里没什么用
             IndicatorType.BEZIER -> mControlPoint
             IndicatorType.SPRING -> mSpringPoint
         }
