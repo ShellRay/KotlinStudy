@@ -9,7 +9,14 @@ import com.kotlin.study.activity.MainActivity
 /**
  * Created by GG on 2018/2/27.
  */
-class ConvenientUtil {
+
+fun Context.dp2px(dp: Int) :Int{
+
+    val scale = resources.displayMetrics.density
+    return (dp * scale + 0.5f).toInt()
+}
+
+class ConvenientUtil {//方法使用 ConvenientUtil.Companion.convertDpToPixel() 如果是object ConvenientUtil则直接用
 
     companion object {
 
