@@ -42,7 +42,9 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "Interpolator",
             "floatTable",
             "XLayout",
-            "Banner"
+            "Banner",
+            "SVGAHeader",
+            "null"
 
     )
 
@@ -152,6 +154,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     11 ->  startActivity(Intent(baseContext, FloatTableActivity::class.java))
                     12 ->  startActivity(Intent(baseContext, XLayoutActivity::class.java))
                     13 ->  startActivity(Intent(baseContext, BannerActivity::class.java))
+                    14 ->  startActivity(Intent(baseContext, SVAGHeaderActivity::class.java))
 
                     else -> toast("no view setClick event")
                 }

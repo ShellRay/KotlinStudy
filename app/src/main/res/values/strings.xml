@@ -32,4 +32,9 @@
     <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
     <string name="N_A">N/A</string>
     <string name="elite">精选</string>
+
+    <string name="li_refresh_header_success">这些是最新的推荐内容哦</string>
+    <string name="li_refresh_header_failure">网络有点挤，等一下再试试吧</string>
+    <string name="li_refresh_header_not_work">好像没有连接网络哦</string>
+
 </resources>
