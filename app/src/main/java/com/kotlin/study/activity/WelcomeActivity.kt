@@ -63,27 +63,6 @@ class WelcomeActivity : SupportActivity(){
 
     }
 
-    class TimerTasks(private val context: WelcomeActivity) : java.util.TimerTask(){
-        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        override fun run() {
-            Log.e("kotlin","jump"+ Thread.currentThread().name)
-            Looper.prepare()
-//            Toast.makeText(baseContext, "inside thread : Jump it", Toast.LENGTH_SHORT).show()
-            /*var intent = Intent(baseContext, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            baseContext.startActivity(intent)
-            baseContext.finish()*/
-
-            context.runOnUiThread {
-                context.doUpAnimator()
-            }
-            Looper.loop()
-
-
-        }
-
-    }
-
     /**
      * 这里我采用的比较暴力的方法，主要是不想写事件拦截了，想写的小伙伴，可以自己去写
      */
@@ -150,14 +129,13 @@ class WelcomeActivity : SupportActivity(){
         upAnimator = ObjectAnimator.ofFloat(ll_move_container, "translationY", 0f, -moveY.toFloat())
         upAnimator!!.addUpdateListener {
             if (it.currentPlayTime in 600..1500) {
-                iv_head_outer.setImageResource(R.drawable.ic_eye_white_outer)
-                iv_head_inner.setImageResource(R.drawable.ic_eye_white_inner)
+                iv_head_outer.setImageResource(R.drawable.ic_white_outer)
+                iv_head_inner.setImageResource(R.drawable.ic_white_inner)
                 tv_name.setTextColor(resources.getColor(R.color.gray_B7B9B8))
 
             } else if (it.currentPlayTime in 1500..2000) {
-                iv_head_outer.setImageResource(R.drawable.ic_eye_black_outer)
-                iv_head_inner.setImageResource(R.drawable.ic_eye_black_inner)
-
+                iv_head_outer.setImageResource(0)
+                iv_head_inner.setImageResource(R.drawable.easy_int_icon)
                 tv_name.setTextColor(resources.getColor(R.color.black_444444))
             }
 
@@ -186,7 +164,7 @@ class WelcomeActivity : SupportActivity(){
         backgroundAnimator!!.doOnEnd {
             doTextAnimator()
         }
-        rotateAnimator.duration = 2000
+        rotateAnimator.duration = 5000
         backgroundAnimator!!.duration = 2000
         backgroundAnimator!!.start()
         rotateAnimator.start()
