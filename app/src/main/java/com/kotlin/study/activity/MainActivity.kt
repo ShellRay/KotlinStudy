@@ -3,43 +3,34 @@ package com.kotlin.study.activity
 import android.content.Intent
 import android.os.Build
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import android.support.annotation.RequiresApi
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
+import android.widget.RadioGroup
 import com.kotlin.study.BaseActivity
 import com.kotlin.study.R
-import com.kotlin.study.R.id.action_settings
+import com.kotlin.study.fragment.FirstFragment
+import com.kotlin.study.fragment.FourthFragment
+import com.kotlin.study.fragment.SecondFragment
+import com.kotlin.study.fragment.ThirdFragment
 import com.kotlin.study.utils.GlideLoadUtils
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
-import com.tmall.wireless.tangram.TangramBuilder
 
 
+class MainActivity : BaseActivity(), RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
-class MainActivity : BaseActivity() {
-
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
-
-    val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dragen, R.mipmap.dead3, R.mipmap.beauty, R.mipmap.dragen, R.mipmap.tiger, R.mipmap.xingzai)
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,28 +39,68 @@ class MainActivity : BaseActivity() {
 
         setSupportActionBar(toolbar)
         //设置右边toolbar图标
-        toolbar.overflowIcon = getDrawable(R.mipmap.search_icon);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        toolbar.overflowIcon = getDrawable(R.mipmap.search_icon)
 
-        val builder = TangramBuilder.newInnerBuilder(this@MainActivity)
+        val firstFragment = FirstFragment()
+        val secondFragment = SecondFragment()
+        val thirdFragment = ThirdFragment()
+        val fourthFragment = FourthFragment()
 
-        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
+        val listFragments = ArrayList<Fragment>()
+        listFragments.add(firstFragment)
+        listFragments.add(secondFragment)
+        listFragments.add(thirdFragment)
+        listFragments.add(fourthFragment)
+
+        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager,listFragments)
 
         // Set up the ViewPager with the sections adapter.
         container.adapter = mSectionsPagerAdapter
+        container.offscreenPageLimit = 4
+
+        container.currentItem = 0
+        groupView.check(R.id.first)
+
+        container.setOnPageChangeListener(this)
+        groupView.setOnCheckedChangeListener(this)
 
         fab.setOnClickListener {
             Snackbar.make(it, "Open your new world", Snackbar.LENGTH_LONG)
                     .setAction("Jump Import", View.OnClickListener {
-                        var intent = Intent(this,StartBeginActivity::class.java)
+                        val intent = Intent(this,StartBeginActivity::class.java)
                         startActivity(intent)
                     }).show()
         }
 
     }
 
+    override fun onPageScrollStateChanged(state: Int) {
 
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+    }
+
+    override fun onPageSelected(position: Int) {
+        when(position){
+            0 -> groupView.check(R.id.first)
+            1 -> groupView.check(R.id.second)
+            2 -> groupView.check(R.id.third)
+            3 -> groupView.check(R.id.fourth)
+        }
+    }
+
+    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+
+        when(checkedId){
+            R.id.first  -> container.currentItem = 0
+            R.id.second -> container.currentItem = 1
+            R.id.third  -> container.currentItem = 2
+            R.id.fourth -> container.currentItem = 3
+        }
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -91,28 +122,21 @@ class MainActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    inner class SectionsPagerAdapter(fm: FragmentManager, listFragments: ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
 
-    /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        private var listFragments = listFragments
 
         override fun getItem(position: Int): Fragment {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position)
+//            return PlaceholderFragment.newInstance(position)
+            return listFragments[position]
         }
 
         override fun getCount(): Int {
-            // Show 3 total pages.
-            return RES.size
+            return listFragments.size
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
     class PlaceholderFragment : Fragment() {
         val RES = intArrayOf(R.mipmap.dead1, R.mipmap.dragen, R.mipmap.dead3, R.mipmap.beauty, R.mipmap.dragen, R.mipmap.tiger, R.mipmap.xingzai)
 

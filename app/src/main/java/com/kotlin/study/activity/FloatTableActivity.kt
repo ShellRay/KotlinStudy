@@ -18,23 +18,24 @@ class FloatTableActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_float_table)
         var viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewpager.adapter = viewPagerAdapter
-
-        tablayout.setxTabDisplayNum(2)
-        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        tablayout.setxTabDisplayNum(3)
         viewPagerAdapter.addItem(DemoFragment(), "收益总榜")
+        viewPagerAdapter.addItem(DemoFragment(), "消费总榜")
         viewPagerAdapter.addItem(DemoFragment(), "我邀请的会员")
-        viewpager.setAdapter(viewPagerAdapter)
+        viewpager.adapter = viewPagerAdapter
         tablayout.setupWithViewPager(viewpager)
-        initappBar()
+        initAppBar()
+        initListener()
+    }
+
+    private fun initListener() {
+        iv_back_topic.setOnClickListener {
+            finish()
+        }
 
     }
 
-    override fun finish() {
-        super.finish()
-    }
-
-    private fun initappBar() {
+    private fun initAppBar() {
         app_bar_topic.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
             override fun onStateChanged(appBarLayout: AppBarLayout, state: State) {
                 if (state === State.EXPANDED) {

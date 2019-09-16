@@ -60,6 +60,7 @@ public class DemoFragment extends Fragment {
             public void onGlobalLayout() {
                 top = view.getTop();
                 addScrollListener();
+                Log.e("shell","header3 addOnGlobalLayoutListener ---"+top);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 } else {
@@ -81,6 +82,7 @@ public class DemoFragment extends Fragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                Log.e("shell","recyclerView addOnScrollListener ==="+dy);
                 if (dy == 0) return;
                 mScrollY += dy;
                 int translationY = top - mScrollY;

@@ -90,7 +90,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             holder.buttonView.typeface = Typeface.defaultFromStyle(Typeface.BOLD_ITALIC)
 //            holder.buttonView.width = ConvenientUtil.convertDpToPixel(context, 130)
             holder.buttonView.height = ConvenientUtil.convertDpToPixel(context, 70)
-            holder.buttonView.setOnClickListener { v: View? ->
+            holder.buttonView.setOnClickListener {
                 if(listener == null) return@setOnClickListener
                 listener!!.onClick(position)
             }
