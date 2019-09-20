@@ -51,10 +51,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:button="@null"
-            android:text="快退"
+            android:text="首页"
             android:textColor="@color/tab_select_color"
-            android:drawableTop="@mipmap/ic_player_previous"
+            android:drawableTop="@mipmap/main_tab_first"
             android:background="@drawable/tab_selector_bg"
+            android:padding="15dp"
             />
 
         <RadioButton
@@ -63,11 +64,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
-            android:text="暂停"
+            android:text="朋友"
             android:gravity="center"
             android:textColor="@color/tab_select_color"
-            android:drawableTop="@mipmap/ic_player_pause"
+            android:drawableTop="@mipmap/main_tab_second"
             android:background="@drawable/tab_selector_bg"
+            android:padding="15dp"
             />
         <RadioButton
             android:id="@+id/third"
@@ -75,10 +77,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
-            android:text="播放"
+            android:text="社区"
             android:textColor="@color/tab_select_color"
             android:gravity="center"
-            android:drawableTop="@mipmap/ic_player_play"
+            android:padding="15dp"
+            android:drawableTop="@mipmap/main_tab_third"
             android:background="@drawable/tab_selector_bg"
             />
         <RadioButton
@@ -88,13 +91,15 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="快进"
+            android:padding="15dp"
+            android:text="中心"
             android:textColor="@color/tab_select_color"
-            android:drawableTop="@mipmap/ic_player_next"
+            android:drawableTop="@mipmap/main_tab_fourth"
             android:background="@drawable/tab_selector_bg"
             />
 
     </RadioGroup>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
