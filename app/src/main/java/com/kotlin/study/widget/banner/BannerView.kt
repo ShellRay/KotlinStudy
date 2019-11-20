@@ -140,9 +140,9 @@ class BannerView @JvmOverloads constructor(private val m_context: Context, attrs
         }
         imagePagerAdapter.setOnItemListening(object : ImagePagerAdapter.OnItemListening {
             override fun ItemListening(url: String) {
-//                if (bannerClickListener != null && !TextUtils.isEmpty(bannerList!![currrentPos].getSkipUrl())) {
-//                    bannerClickListener!!.bannerClick(bannerList!![currrentPos].getSkipUrl())
-//                }
+                if (bannerClickListener != null) {
+                    bannerClickListener!!.bannerClick(url)
+                }
 
             }
         })

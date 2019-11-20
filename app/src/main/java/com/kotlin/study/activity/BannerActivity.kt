@@ -27,8 +27,8 @@ class BannerActivity : BaseActivity() {
         val mUrlList = arrayListOf<String>()
         mUrlList.add("http://t2.hddhhn.com/uploads/tu/201301/149/2.jpg")
         mUrlList.add("http://t2.hddhhn.com/uploads/tu/201301/149/4.jpg")
-        mUrlList.add("http://img1.imgtn.bdimg.com/it/u=963551012,3660149984&fm=214&gp=0.jpg")
-        mUrlList.add("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=6959877,824205428&fm=27&gp=0.jpg")
+        mUrlList.add("https://t2.hddhhn.com/uploads/tu/201409/036/5.jpg")
+        mUrlList.add("https://t2.hddhhn.com/uploads/tu/201301/189/4.jpg")
         mUrlList.add("http://t2.hddhhn.com/uploads/tu/201409/036/1.jpg")
 
         mTv_hint = findViewById(R.id.tv_hint) as TextView

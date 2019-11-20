@@ -6,54 +6,51 @@
     android:layout_height="match_parent"
     >
 
-    <com.kotlin.study.widget.banner.BannerView
-        android:id="@+id/BannerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_hint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="提示" />
-
-        <com.kotlin.study.widget.banner.ViewPagerIndicator
-            android:id="@+id/indicator_default"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:background="#ffffff"
-            android:layout_gravity="bottom"
-            app:vpi_indicatorType="PROGRESS"
-            app:vpi_default_color="#00ffff"
-            app:vpi_selected_color="#FFff00ff"
-            />
-        <com.kotlin.study.widget.banner.ViewPagerIndicator
-            android:id="@+id/indicator_not_anim"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:background="#ffffff"
-            app:vpi_default_color="#00ffff"
-            android:layout_gravity="bottom"
-            app:vpi_animation="false"
-            app:vpi_indicatorType="CIRCLE_LINE"
-            app:vpi_radius="10dp"
-            app:vpi_selected_color="#FFff00ff"
-            android:layout_below="@+id/indicator_default"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/indicator_not_anim"
             android:orientation="vertical">
 
+            <com.kotlin.study.widget.banner.BannerView
+                android:id="@+id/BannerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="提示" />
+
+            <com.kotlin.study.widget.banner.ViewPagerIndicator
+                android:id="@+id/indicator_default"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="#ffffff"
+                android:layout_gravity="bottom"
+                app:vpi_indicatorType="PROGRESS"
+                app:vpi_default_color="#00ffff"
+                app:vpi_selected_color="#FFff00ff"
+                />
+            <com.kotlin.study.widget.banner.ViewPagerIndicator
+                android:id="@+id/indicator_not_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="#ffffff"
+                app:vpi_default_color="#00ffff"
+                android:layout_gravity="bottom"
+                app:vpi_animation="false"
+                app:vpi_indicatorType="CIRCLE_LINE"
+                app:vpi_radius="10dp"
+                app:vpi_selected_color="#FFff00ff"
+                android:layout_below="@+id/indicator_default"
+                />
 
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_circle"
@@ -136,6 +133,6 @@
             app:vpi_selected_color="#FF23F57E"
             />
         </LinearLayout>
-    </com.kotlin.study.widget.banner.BannerView>
+
 
 </android.support.constraint.ConstraintLayout>

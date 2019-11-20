@@ -110,6 +110,10 @@
         <activity android:name=".activity.SVAGHeaderActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.RedPackageRainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>
