@@ -9,16 +9,23 @@ import java.io.Serializable
  */
 
 
-data class AndyInfo(var count: Int, var total: Int,
-                    var nextPageUrl: String?, var date: Long,
-                    var nextPublishTime: Long, var dialog: String,
-                    var topIssue: TopIssue, var refreshCount: Int,
-                    var lastStartId: Int, var itemList: MutableList<Content>) : Serializable
+data class AndyInfo(var count: Int,
+                    var total: Int,
+                    var nextPageUrl: String?,
+                    var date: Long,
+                    var nextPublishTime: Long,
+                    var topIssue: TopIssue,
+                    var refreshCount: Int,
+                    var lastStartId: Int,
+                    var itemList: MutableList<Content>) : Serializable
 
-data class JenniferInfo(var nextPageUrl: String?, var date: Long,
-                        var nextPublishTime: Long, var dialog: String,
-                        var topIssue: TopIssue, var refreshCount: Int,
-                        var lastStartId: Int, var issueList: MutableList<ContentBean>) : Serializable
+data class JenniferInfo(var nextPageUrl: String?,
+                        var date: Long,
+                        var nextPublishTime: Long,
+                        var topIssue: TopIssue,
+                        var refreshCount: Int,
+                        var lastStartId: Int,
+                        var issueList: MutableList<ContentBean>) : Serializable
 
 data class Content(var type: String,
                    var data: ContentBean,
@@ -28,7 +35,8 @@ data class Content(var type: String,
 
 
 data class ContentBean(var dataType: String,
-                       var header: Header,
+                       var header: Header?,
+                       var follow: FollowInfo?,
                        var content: Content?,
                        var itemList: MutableList<Content>,
                        var id: String,
@@ -52,7 +60,7 @@ data class ContentBean(var dataType: String,
                        var playInfo: MutableList<PlayInfoBean>,
                        var campaign: String,
                        var waterMarks: String,
-                       var type: String,
+                       var type: String?,
                        var titlePgc: String,
                        var descriptionPgc: String,
                        var remark: String,
@@ -77,18 +85,22 @@ data class ContentBean(var dataType: String,
                        var actionUrl: String?) : Serializable
 
 
-data class Header(var id: Int,
-                  var title: String,
-                  var subTitle: String,
+data class Header(var id: String,
+                  var title: String?,
+                  var subTitle: String?,
+                  var subTitleFont: String,
+                  var textAlign: String?,
                   var font: String,
                   var cover: String,
                   var label: Any,
-                  var actionUrl: String,
+                  var actionUrl: String?,
                   var labelList: MutableList<*>,
-                  var icon: String,
+                  var icon: String?,
                   var iconType: String,
-                  var description: String,
-                  var time: Long) : Serializable
+                  var description: String?,
+                  var follow: FollowInfo?,
+                  var time: Long?) : Serializable
+
 
 data class Label(var text: String,
                  var card: String,
@@ -118,7 +130,7 @@ data class ProviderBean(var name: String,
                         var alias: String,
                         var icon: String) : Serializable
 
-data class AuthorBean(var id: Int,
+data class AuthorBean(var id: String,
                       var icon: String,
                       var name: String,
                       var description: String,
@@ -126,16 +138,11 @@ data class AuthorBean(var id: Int,
                       var latestReleaseTime: Long,
                       var videoNum: Int,
                       var adTrack: String,
-                      var follow: FollowBean,
+                      var follow: FollowInfo,
                       var shield: ShieldBean,
                       var approvedNotReadyVideoCount: Int,
                       var isIfPgc: Boolean = false) : Serializable
 
-
-data class FollowBean(
-        var itemType: String,
-        var itemId: Int,
-        var isFollowed: Boolean) : Serializable
 
 data class ShieldBean(
         var itemType: String,
@@ -166,4 +173,44 @@ data class UrlListBean(var name: String,
                        var size: Int) : Serializable
 
 
+data class Category(var categoryInfo: CategoryInfo,
+                    var tabInfo: TabInfo)
 
+data class CategoryInfo(var dataType: String,
+                        var id: String,
+                        var name: String,
+                        var description: String,
+                        var headerImage: String,
+                        var actionUrl: String,
+                        var followInfo: FollowInfo)
+
+
+data class Tab(var tabInfo: TabInfo,
+               var pgcInfo: PgcInfo) : Serializable
+
+data class TabInfo(var tabList: MutableList<TabDetailInfo>,
+                   var defaultIdx: Int) : Serializable
+
+
+data class TabDetailInfo(var id: Int,
+                         var name: String,
+                         var apiUrl: String) : Serializable
+
+
+data class FollowInfo(var itemType: String,
+                      var itemId: String,
+                      var followed: Boolean) : Serializable
+
+
+data class PgcInfo(var dataType: String,
+                   var id: Int,
+                   var icon: String,
+                   var name: String,
+                   var brief: String,
+                   var description: String,
+                   var actionUrl: String,
+                   var followCount: Int,
+                   var shareCount: Int,
+                   var videoCount: Int,
+                   var collectCount: Int,
+                   var followInfo: FollowInfo) : Serializable

@@ -18,7 +18,7 @@ import com.kotlin.study.widget.pullrefreshview.HomeFooterLayout
 import com.kotlin.study.widget.pullrefreshview.HomeHeaderLayout
 import kotlinx.android.synthetic.main.activity_svga_header.*
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 /**
  * @author ShellRay
@@ -39,15 +39,17 @@ class SVAGHeaderActivity : BaseActivity(){
     var mDelegateAdapter:DelegateAdapter? = null
 
     val list:ArrayList<String> = arrayListOf("http://img1.imgtn.bdimg.com/it/u=4015794218,4048140087&fm=26&gp=0.jpg",
-            "http://img4q.duitang.com/uploads/item/201505/06/20150506202234_thzKj.jpeg",
+            "http://b-ssl.duitang.com/uploads/item/201505/16/20150516185030_v8LBu.jpeg",
             "http://b-ssl.duitang.com/uploads/item/201505/16/20150516185030_v8LBu.jpeg",
             "http://i4.hoopchina.com.cn/hupuapp/bbs/796/25836796/thread_25836796_20190729011002_s_340309_o_w_1920_h_1080_1472.jpg?x-oss-process=image/resize,w_800/format,jpg")
 
+    val dataList : ArrayList<String> = arrayListOf("自强","明主","富强","奇迹","归来","释放","勿忘","自由","抱负","强健","主见")
+
+    var recyclerView :RecyclerView?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_svga_header)
-
-        var recyclerView = pullRecycle.refreshableView
+         recyclerView = pullRecycle.refreshableView
         var headerLayout = HomeHeaderLayout(this)
         var footerLayout = HomeFooterLayout(this)
         pullRecycle.setHeaderLayout(headerLayout)
@@ -76,15 +78,15 @@ class SVAGHeaderActivity : BaseActivity(){
         })
         var mLayoutManager = VirtualLayoutManager(this)
         mLayoutManager.setRecycleOffset(300)
-        recyclerView.layoutManager = mLayoutManager
+        recyclerView!!.layoutManager = mLayoutManager
 
         var mViewPool = RecyclerView.RecycledViewPool()
-        recyclerView.recycledViewPool = mViewPool
+        recyclerView!!.recycledViewPool = mViewPool
         mViewPool.setMaxRecycledViews(0, 20)
 
         mDelegateAdapter = DelegateAdapter(mLayoutManager, true)
         mDelegateAdapter!!.setAdapters(mSubAdapters)
-        recyclerView.adapter = mDelegateAdapter
+        recyclerView!!.adapter = mDelegateAdapter
 
         initSubAdapters()
         updateSubAdapterList()
@@ -113,7 +115,7 @@ class SVAGHeaderActivity : BaseActivity(){
     }
 
     private fun initRoomAdapter() {
-        mRankTagAdapter = RecommendTagAdapter(this, LinearLayoutHelper(), "tag", VIEW_TYPE_TAG, null, false)
+        mRankTagAdapter = RecommendTagAdapter(this, LinearLayoutHelper(), "推荐", VIEW_TYPE_TAG, null, true)
     }
 
     private fun refreshComplete(state: Int, refreshLayout: IRefreshLayout?) {

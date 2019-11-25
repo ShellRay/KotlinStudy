@@ -133,10 +133,10 @@ open class BaseDataAdapter(data: MutableList<Content>) : BaseQuickAdapter<Conten
         val ivSource = helper.getView<SimpleDraweeView>(R.id.iv_source)
         val tvDate = helper.getView<CustomFontTextView>(R.id.tv_date)
 
-        tvTitle.text = info.header.title
-        tvDesc.text = info.header.description
-        tvDate.text = TimeUtils.getTimeStr(Date(info.header.time))
-        ivSource.setImageURI(info.header.icon)
+        tvTitle.text = info.header!!.title
+        tvDesc.text = info.header!!.description
+        tvDate.text = TimeUtils.getTimeStr(Date(info.header!!.time!!))
+        ivSource.setImageURI(info.header!!.icon)
 
         //跳转到视频详细界面
         helper.itemView.setOnClickListener {

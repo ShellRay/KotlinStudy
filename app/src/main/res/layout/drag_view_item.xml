@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlRoot"
+    android:focusable="true"
+    android:clickable="true"
+    android:gravity="center"
+    android:layout_width="match_parent" android:layout_height="70dp">
+
+    <TextView
+        android:id="@+id/tvView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="21dp"
+        android:textColor="@color/gray_828885"
+        android:text="123"/>
+
+</RelativeLayout>

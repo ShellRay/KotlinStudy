@@ -21,17 +21,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
-                android:id="@+id/tv_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="提示" />
-
             <com.kotlin.study.widget.banner.ViewPagerIndicator
                 android:id="@+id/indicator_default"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="10dp"
                 android:background="#ffffff"
                 android:layout_gravity="bottom"
                 app:vpi_indicatorType="PROGRESS"
@@ -55,7 +48,7 @@
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_circle"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="20dp"
             android:background="#efefef"
             app:vpi_default_color="#cdcdcd"
             app:vpi_distance="80dp"
@@ -74,7 +67,7 @@
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_line"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="20dp"
             android:background="#efefef"
             app:vpi_default_color="#cdcdcd"
             app:vpi_distance="800dp"
@@ -91,7 +84,7 @@
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_circle_line"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="20dp"
             android:background="#efefef"
             app:vpi_default_color="#FF239AF5"
             app:vpi_distance="60dp"
@@ -107,7 +100,7 @@
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_bezier"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="20dp"
             android:background="#efefef"
             app:vpi_default_color="#cdcdcd"
             app:vpi_distance="80dp"
@@ -123,7 +116,7 @@
         <com.kotlin.study.widget.banner.ViewPagerIndicator
             android:id="@+id/indicator_spring"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="20dp"
             android:background="#efefef"
             app:vpi_default_color="#cdcdcd"
             app:vpi_distance="80dp"
@@ -132,6 +125,29 @@
             app:vpi_radius="15dp"
             app:vpi_selected_color="#FF23F57E"
             />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="拖拽" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerDragView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                />
         </LinearLayout>
 
 

@@ -32,21 +32,6 @@ class HomePresenter : BasePresenter<HomeView>() {
     }
 
     /**
-     * 刷新首页信息延迟1秒执行
-     */
-    fun refreshCategoryData() {
-        mRxManager.add(mHomeModel.refreshCategoryInfo().subscribe({
-            mView?.showContent()
-            mNextPageUrl = it.nextPageUrl
-            mView?.refreshDataSuccess(it)
-        }, {
-            mView?.showNetError(View.OnClickListener {
-                refreshCategoryData()
-            })
-        }))
-    }
-
-    /**
      * 加载更多首页信息
      */
     fun loadMoreCategoryData() {
