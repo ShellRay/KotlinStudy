@@ -1,6 +1,7 @@
 package com.kotlin.study.utils;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -73,6 +74,26 @@ public class GlideLoadUtils<T> {
                 .error(R.mipmap.mojieicon)
                 .transform(new RoundedCorners(convertDpToPixel(context,i)))
                 .into(imageView);
+    }
+
+    /**
+     * 加载网络图片 圆形图片
+     * @param mContext
+     * @param path
+     * @param imageview
+     */
+    public  void LoadImageCircle(Context mContext, String path,
+                                       ImageView imageview) {
+
+        if(!TextUtils.isEmpty(path)) {
+            GlideApp.with(mContext)
+                    .asBitmap()
+                    .load(path)
+                    .placeholder(R.mipmap.mojieicon)
+                    .error(R.mipmap.mojieicon)
+                    .circleCrop()
+                    .into(imageview);
+        }
     }
 
     private int convertDpToPixel(Context context,int dp){
