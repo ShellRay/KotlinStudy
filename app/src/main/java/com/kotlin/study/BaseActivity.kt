@@ -1,12 +1,17 @@
 package com.kotlin.study
 
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import com.kotlin.study.manager.ActivityStack
+import com.kotlin.study.utils.LocalLanguageUtils
+import java.util.*
 
 /**
  * @author ShellRay
@@ -97,4 +102,10 @@ open class BaseActivity: AppCompatActivity(){
         }
 
     }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.let { LocalLanguageUtils.getAttachBaseContext(it) })
+    }
+
+
 }

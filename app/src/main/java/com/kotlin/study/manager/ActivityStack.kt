@@ -1,6 +1,7 @@
 package com.kotlin.study.manager
 
 import android.app.Activity
+import java.lang.Exception
 
 import java.util.ArrayList
 
@@ -100,5 +101,27 @@ object ActivityStack {
         return if (activity != null) {
             activity.javaClass.name == className
         } else false
+    }
+
+    fun recreateAllOtherActivity(activity: Activity) {
+        var i = 0
+        val size: Int? = mActivityList?.size
+        while (i < size!!) {
+            if (null != mActivityList?.get(i) && mActivityList!!.get(i) !== activity) {
+                mActivityList!!.get(i).recreate()
+            }
+            i++
+        }
+    }
+
+    /**
+     * 退出应用程序
+     */
+    fun AppExit() {
+        try {
+            finishProgram()
+            System.exit(0)
+        } catch (e: Exception) {
+        }
     }
 }

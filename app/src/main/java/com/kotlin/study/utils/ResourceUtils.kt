@@ -82,6 +82,9 @@ class  ResourceUtils {
 
         val datasize = filelist!!.size
         var position = 0
+        if(datasize == 0){
+            return
+        }
 
         while (position < datasize) {
             val sub = filelist!![position]

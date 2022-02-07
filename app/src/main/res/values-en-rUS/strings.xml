@@ -1,8 +1,8 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">KotlinStudy</string>
     <string name="action_settings">Search</string>
     <string name="section_format">KOTLIN SECRET: %1$d</string>
-    <string name="net_error_message">网络失败</string>
+    <string name="net_error_message">net_error</string>
     <!--《增广贤文》-->
     <string-array name="slogan_array">
         <item>未曾清贫难成人，不经打击老天真。</item>
@@ -10,6 +10,12 @@
         <item>醉生梦死谁成器，拓马长枪定乾坤。</item>
         <item>挥军千里山河在，立名扬威传后人。</item>
     </string-array>
+<!--    <string-array name="slogan_array_zh">-->
+<!--        <item>Never been impoverished and difficult to adults, without hitting the naive.</item>-->
+<!--        <item>Since ancient times, heroes have come out of purgatory, and they have never been rich and noble.</item>-->
+<!--        <item>Drunk life, dream and death, who will become a weapon, Tuoma's spear will determine the world.</item>-->
+<!--        <item>With the army thousands of miles, the mountains and rivers are here, and the fame and prestige will be passed down to future generations.</item>-->
+<!--    </string-array>-->
 
     <string-array name="slogan_array_en">
         <item>Never be poor or hard to grow up, never be naive.</item>
@@ -22,7 +28,7 @@
     </string>
     <string name="VideoView_error_text_unknown">Unknown</string>
     <string name="VideoView_error_button">OK</string>
-    <string name="video_error_notice">视频加载失败</string>
+    <string name="video_error_notice">video_load_error</string>
 
     <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
     <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
@@ -31,20 +37,21 @@
     <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
     <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
     <string name="N_A">N/A</string>
-    <string name="elite">精选</string>
+    <string name="elite">elite</string>
 
-    <string name="li_refresh_header_success">这些是最新的推荐内容哦</string>
-    <string name="li_refresh_header_failure">网络有点挤，等一下再试试吧</string>
-    <string name="li_refresh_header_not_work">好像没有连接网络哦</string>
+    <string name="li_refresh_header_success">These are the latest recommendations</string>
+    <string name="li_refresh_header_failure">The network is a bit crowded, try again later</string>
+    <string name="li_refresh_header_not_work">Doesn\'t seem to be connected to the internet </string>
 
-    <string name="li_refresh_footer_loading" >加载中...</string>
-    <string name="li_refresh_footer_success" >加载成功</string>
-    <string name="tx_actor_list">主要演员表</string>
+    <string name="li_refresh_footer_loading" >Loading...</string>
+    <string name="li_refresh_footer_success" >Load Success</string>
+    <string name="tx_actor_list">Most Actor List</string>
 
-    <string name="tx_change_language">修改语言</string>
-    <string name="skip_tip">跳过</string>
-    <string name="tab_home_first">首页</string>
-    <string name="tab_home_friends">朋友</string>
-    <string name="tab_home_communnity">社区</string>
-    <string name="tab_home_center">中心</string>
+    <string name="tx_change_language">change Language</string>
+    <string name="skip_tip">SKIP</string>
+
+    <string name="tab_home_first">HOME</string>
+    <string name="tab_home_friends">FRIEND</string>
+    <string name="tab_home_communnity">COMMUNITY</string>
+    <string name="tab_home_center">CENTER</string>
 </resources>

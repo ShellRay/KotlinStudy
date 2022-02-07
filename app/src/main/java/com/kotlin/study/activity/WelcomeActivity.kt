@@ -2,6 +2,7 @@ package com.kotlin.study.activity
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.Intent
 import android.os.*
 import android.support.annotation.RequiresApi
@@ -12,10 +13,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import com.kotlin.study.KotlinApplication
+import com.kotlin.study.KotlinApplication.Companion.getResource
 import com.kotlin.study.R
 import com.kotlin.study.UserPreferences
 import com.kotlin.study.adapter.SplashVideoFragmentAdapter
 import com.kotlin.study.fragment.SloganFragment
+import com.kotlin.study.utils.LocalLanguageUtils
 import com.rd.utils.DensityUtils
 import kotlinx.android.synthetic.main.activity_welcome.*
 import me.yokeyword.fragmentation.SupportActivity
@@ -68,8 +71,9 @@ class WelcomeActivity : SupportActivity(){
      */
     private fun initSloganText() {
         //设置初始标语
-        tv_slogan_en.printText(application.resources.getStringArray(R.array.slogan_array_en)[0])
-        tv_slogan_zh.printText(application.resources.getStringArray(R.array.slogan_array_zh)[0])
+        tv_slogan_en.printText(resources.getStringArray(R.array.slogan_array_en)[0])
+        val text =resources.getStringArray(R.array.slogan_array)[0]
+        tv_slogan_zh.printText(text)
 
         pageIndicatorView.count = 4
         pageIndicatorView.visibility = View.GONE
@@ -99,8 +103,8 @@ class WelcomeActivity : SupportActivity(){
             override fun onPageSelected(position: Int) {
                 Log.e("shell","onPageSelected " + position)
                 if (position in 0..3) {
-                    tv_slogan_en.printText(KotlinApplication.getResource().getStringArray(R.array.slogan_array_en)[position])
-                    tv_slogan_zh.printText(KotlinApplication.getResource().getStringArray(R.array.slogan_array_zh)[position])
+                    tv_slogan_en.printText(resources.getStringArray(R.array.slogan_array_en)[position])
+                    tv_slogan_zh.printText(resources.getStringArray(R.array.slogan_array)[position])
                     pageIndicatorView.setSelected(position)
                 }
             }
@@ -197,5 +201,9 @@ class WelcomeActivity : SupportActivity(){
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.let { LocalLanguageUtils.getAttachBaseContext(it) })
     }
 }

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">코틀린스터디</string>
+    <string name="action_settings">찾다</string>
+    <string name="section_format">KOTLIN SECRET: %1$d</string>
+    <string name="net_error_message">네트워크 오류</string>
+    <!--《增广贤文》-->
+    <string-array name="slogan_array">
+        <item>결코 가난하지 않고 어른들에게 까다롭지 않고 순진합니다.</item>
+        <item>예로부터 용사들은 연옥에서 나왔으나 결코 부귀하고 고귀한 적이 없었다.</item>
+        <item>술 취한 삶과 꿈과 죽음이 무기가 될 투오마의 창이 세상을 결정한다.</item>
+        <item>천 마일의 산과 강으로 명성을 쌓았고 후세에 계승했습니다.</item>
+    </string-array>
+
+    <string-array name="slogan_array_en">
+        <item>Never be poor or hard to grow up, never be naive.</item>
+        <item>From ancient times heroes went out of purgatory, from wealth to mortality.</item>
+        <item>Drunk life, dream death, who become a weapon, Tuo Ma long gun to determine the universe.</item>
+        <item>Swing the army thousands of miles in the mountains and rivers, the name of the descendants.</item>
+    </string-array>
+
+    <string name="VideoView_error_text_invalid_progressive_playback">Invalid progressive playback
+    </string>
+    <string name="VideoView_error_text_unknown">Unknown</string>
+    <string name="VideoView_error_button">OK</string>
+    <string name="video_error_notice">video_load_error</string>
+
+    <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
+    <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
+    <string name="VideoView_ar_aspect_wrap_content">Aspect / Wrap item</string>
+    <string name="VideoView_ar_match_parent">Free / Fill parent</string>
+    <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
+    <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
+    <string name="N_A">N/A</string>
+    <string name="elite">엘리트</string>
+
+    <string name="li_refresh_header_success">최신 권장 사항입니다.</string>
+    <string name="li_refresh_header_failure">네트워크가 다소 혼잡합니다. 나중에 다시 시도하세요.</string>
+    <string name="li_refresh_header_not_work">인터넷에 연결되어 있지 않은 것 같습니다 </string>
+
+    <string name="li_refresh_footer_loading" >로딩...</string>
+    <string name="li_refresh_footer_success" >로드 성공</string>
+    <string name="tx_actor_list">가장_배우_목록</string>
+
+    <string name="tx_change_language">언어 변경</string>
+    <string name="skip_tip">뛰어 넘다</string>
+
+    <string name="tab_home_first">첫 페이지</string>
+    <string name="tab_home_friends">친구</string>
+    <string name="tab_home_communnity">커뮤니티</string>
+    <string name="tab_home_center">센터</string>
+
+</resources>

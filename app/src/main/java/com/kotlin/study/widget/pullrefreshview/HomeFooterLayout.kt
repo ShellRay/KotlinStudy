@@ -45,8 +45,8 @@ class HomeFooterLayout(context: Context) : LoadingLayoutBase(context), IRefreshL
         //创建指针和旋转动画
         createAnimation()
         // Load in labels
-        mRefreshingLabel = "加载中..."
-        mCompleteLabel = "加载成功"
+        mRefreshingLabel = context.getString(R.string.li_refresh_footer_loading)
+        mCompleteLabel = context.getString(R.string.li_refresh_footer_success)
         reset()
     }
 

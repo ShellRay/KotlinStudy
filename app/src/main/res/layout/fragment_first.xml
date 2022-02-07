@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         app:layout_constraintTop_toBottomOf ="@+id/BannerView"
-        android:text="主要演员表"
+        android:text="@string/tx_actor_list"
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
         android:textSize="16dp"
