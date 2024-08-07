@@ -5,12 +5,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.kotlin.study.BaseFragment
-import com.kotlin.study.video.videohome.presenter.HomePresenter
-import com.kotlin.study.video.videohome.view.HomeView
 import com.kotlin.study.R
 import com.kotlin.study.adapter.BaseDataAdapter
 import com.kotlin.study.entity.AndyInfo
 import com.kotlin.study.utils.bindView
+import com.kotlin.study.video.videohome.presenter.HomePresenter
+import com.kotlin.study.video.videohome.view.HomeView
 
 
 /**

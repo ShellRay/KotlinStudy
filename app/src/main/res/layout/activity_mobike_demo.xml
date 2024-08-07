@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  >
+
+<!--    52  79-->
+
+    <com.kotlin.study.widget.mobike.MobikeView
+        android:id="@+id/mobike_view"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginTop="@dimen/dp_40"
+        android:background="#673AB7"
+    />
+
+
+    <TextView
+        android:id="@+id/tvAdd"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="添加"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/blue"
+        android:layout_below="@+id/mobike_view"
+        />
+
+    <TextView
+        android:id="@+id/tvRemove"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="大动画"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/tvAdd"
+        android:textColor="@color/white"
+        android:background="@color/blue"
+        android:layout_below="@+id/mobike_view"
+        />
+
+
+</RelativeLayout>

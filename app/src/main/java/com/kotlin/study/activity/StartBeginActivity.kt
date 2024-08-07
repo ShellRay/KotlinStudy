@@ -44,7 +44,8 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
             "XLayout",
             "BannerAndDrag",
             "SVGAHeader",
-            "redPackage"
+            "redPackage",
+            "Mobike"
 
     )
 
@@ -156,6 +157,7 @@ class StartBeginActivity : BaseActivity(), View.OnClickListener {
                     13 ->  startActivity(Intent(baseContext, BannerAndDragActivity::class.java))
                     14 ->  startActivity(Intent(baseContext, SVAGHeaderActivity::class.java))
                     15 ->  startActivity(Intent(baseContext, RedPackageRainActivity::class.java))
+                    16 ->  startActivity(Intent(baseContext, MobikeDemo::class.java))
 
                     else -> toast("no view setClick event")
                 }

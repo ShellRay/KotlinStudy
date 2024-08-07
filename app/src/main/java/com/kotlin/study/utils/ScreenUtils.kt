@@ -32,4 +32,10 @@ object ScreenUtils {
         wm.defaultDisplay.getMetrics(dm)
         return dm.heightPixels
     }
+
+    fun Context.dp2px(dp: Int) :Int{
+
+        val scale = resources.displayMetrics.density
+        return (dp * scale + 0.5f).toInt()
+    }
 }

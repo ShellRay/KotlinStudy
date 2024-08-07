@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KotlinStudy.iml" filepath="$PROJECT_DIR$/KotlinStudy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/KotlinStudy.iml" filepath="$PROJECT_DIR$/.idea/KotlinStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.iml" filepath="$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.test.iml" filepath="$PROJECT_DIR$/.idea/modules/GreenDaoGenLib/KotlinStudy.GreenDaoGenLib.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KotlinStudy.app.unitTest.iml" />
     </modules>
   </component>
 </project>
